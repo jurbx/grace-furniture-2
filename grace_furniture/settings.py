@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'storages',
     "corsheaders",
     'mathfilters',
-    'django_filters',
     'main_page.apps.MainPageConfig',
     'cart.apps.CartConfig'
 ]
