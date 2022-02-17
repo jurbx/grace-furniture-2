@@ -1,0 +1,36 @@
+/*----------------------------------------*/
+/*  03. Header CSS
+/*----------------------------------------*/
+
+// header section
+.header-section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 93;
+}
+
+// header section
+.header-section-02{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 93;    
+    padding-bottom: 0;
+
+    @media #{$extraBig-device}{
+        padding: 30px;
+    }
+
+    // sticky
+    & .sticky{
+        background-color: #292929;
+    }
+}
+
+@import "header/header-top";
+@import "header/header-bottom";
+@import "header/header-mobile";
+@import "header/offcanvas";

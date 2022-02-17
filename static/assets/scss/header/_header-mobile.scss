@@ -1,0 +1,84 @@
+/*--
+/*  3.3 - Header Mobile CSS
+/*----------------------------------------*/
+
+
+// Header Mobile 
+.header-mobile{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 93;
+    background-color: $white;
+}
+
+// Header Mobile 
+.header-mobile-02{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 93;
+    background-color: $dark;
+
+    // sticky
+    & .sticky{
+        background-color: rgba(41, 41, 41, 0.8);
+    }
+}
+
+
+// Header Mobile Top 
+.header-mobile-top{
+    padding: 10px 0;
+}
+
+
+// Header Toggle
+.header-toggle{
+    & .mobile-menu-open{
+        display: inline-block;
+        background: none;
+        border: 0;
+        padding: 0;
+        
+        & span{
+            width: 23px;
+            height: 2px;
+            background-color: $dark;
+            margin: 5px 0;
+            display: block;
+        }
+    }
+}
+
+// Header Toggle
+.header-toggle-02{
+    & .mobile-menu-open{        
+        & span{
+            background-color: $white;
+        }
+    }
+}
+
+
+// Header mobile bootm 
+.header-mobile-bootm{
+    padding-bottom: 15px;
+
+    // Header Search
+    & .header-search{
+        max-width: 100%;
+
+        & input{
+            background-color: rgb(243, 243, 243);
+        }
+        & button{}
+    }
+}
+
+
+
+
+

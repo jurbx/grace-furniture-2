@@ -1,0 +1,137 @@
+/*--
+/*  4.12 - Compare CSS
+/*----------------------------------------*/
+
+.compare-table{
+    & .table{
+        margin-bottom: 0;
+
+        & tbody{
+            & tr{
+                & th{
+                    white-space: nowrap;
+                    text-align: center;
+                    padding: 15px 15px;
+                    border: 1px solid #e6e6e6;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: $dark;
+                    vertical-align: middle;
+                    width: 160px;
+                    
+                    @media #{$large-mobile}{
+                        padding: 20px 15px;
+                    }
+                }
+                & td{
+                    padding: 15px 15px;
+                    text-align: center;
+                    border: 1px solid #e6e6e6;
+                    color: $dark;
+                    font-size: 18px;
+                    min-width: 250px;
+                    
+                    @media #{$large-mobile}{
+                        padding: 20px 15px;
+                        font-size: 16px;
+                    }
+                    
+                    & .product-image-title{                        
+                        & .product-image{
+                            & img{
+                                display: block;
+                            }
+                        }
+                        & .category{
+                            color: #555;
+                            font-size: 15px;
+                            display: block;
+                            margin-top: 25px;
+                            text-decoration: none;
+
+                            &:hover{
+                                color: $primary;
+                            }
+                        }
+                        & .title{
+                            margin-bottom: 0;
+                            & a{
+                                font-size: 16px;
+                                color: $dark;
+                                font-weight: 600;
+                                margin-top: 15px;
+                                text-decoration: none;
+                                margin-top: 5px;
+                            }
+                        }
+                    }
+                    
+                    & .description{
+                        font-size: 14px;
+                    }
+                    
+                    & .main-btn{
+                        height: 50px;
+                        line-height: 50px;
+                        letter-spacing: 0;
+                    }
+                    
+                    & .delete{
+                        font-size: 18px;
+                        color: $dark;
+                        padding: 0;
+                        border: 0;
+                        background: none;
+
+                        &:hover{
+                            color: $primary;
+                        }
+                    }
+                    
+                    & .review-star{
+                        position: relative;
+                        display: inline-block;
+            
+                        &::before{
+                            content: "\e9d5" "\e9d5" "\e9d5" "\e9d5" "\e9d5";
+                            font-family: 'plazaicon';
+                            display: inline-block;
+                            color: #dbdbdb;
+                            font-weight: 400;
+                            line-height: 1;
+                            vertical-align: middle;                    
+                        }
+                        & .star{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            z-index: 2;
+                            overflow: hidden;
+            
+                            &::before{
+                                content: "\e9d5" "\e9d5" "\e9d5" "\e9d5" "\e9d5";
+                                font-family: 'plazaicon';
+                                display: inline-block;
+                                color: #ffc600;
+                                font-weight: 400;
+                                line-height: 1;
+                                vertical-align: middle;                    
+                            }
+                        }
+                    } 
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

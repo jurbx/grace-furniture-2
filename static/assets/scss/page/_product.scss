@@ -1,0 +1,431 @@
+/*--
+/*  4.4 - Product CSS
+/*----------------------------------------*/
+
+
+// Product Item 
+.product-item{
+    padding: 15px;
+    transition: all 300ms linear;
+    background-color: $white;
+    position: relative;
+
+    & .image-block{
+        position: relative;
+
+        & a{
+            display: block;
+            position: relative;
+        }
+        & img{
+            width: 100%;
+            transition: all 0.6s linear;
+
+            &.image-hover{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                transition: all 0.6s linear;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }       
+
+        & .product-label{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 7;
+
+            & span{
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                text-align: center;
+                border-radius: 50%;
+                display: inline-block;
+                color: $white;
+                padding: 0;
+                font-size: 12px;
+                font-weight: 400;
+                text-transform: capitalize;
+                z-index: 4;                    
+            }
+            & .new{
+                background-color: #1759df;
+            }
+            & .discount-percentage{
+                background-color: $primary;
+            }
+        }
+
+        & .product-action{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            font-size: 0;
+            visibility: hidden;
+            opacity: 0;
+            text-align: center;
+            transform: translateY(25px) translateZ(0);
+            perspective: 800px;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-transition: opacity .3s ease,visibility .3s ease,transform .3s ease;
+            -webkit-transition: opacity .3s ease,visibility .3s ease,-webkit-transform .3s ease;
+            transition: opacity .3s ease,visibility .3s ease,-webkit-transform .3s ease;
+            transition: opacity .3s ease,visibility .3s ease,transform .3s ease;
+            transition: opacity .3s ease,visibility .3s ease,transform .3s ease,-webkit-transform .3s ease;            
+
+            & .action-btn{
+                display: inline-block;
+                background: $white;
+                color: #888888;
+                padding: 0;
+                border: none;
+                line-height: 50px;
+                height: 50px;
+                width: 50px;
+                padding: 0;
+                font-size: 18px;
+                text-align: center;
+                text-transform: capitalize;
+                text-decoration: none;
+                transition: all 0.3s linear;
+                position: relative;
+
+                & + .action-btn{
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        width: 1px;
+                        height: 25px;
+                        background: #ebebeb;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                @media #{$desktop-device}{
+                    line-height: 40px;
+                    height: 40px;
+                    width: 40px;
+                }
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+    }
+    & .product-desc{
+        padding: 12px 0 0;
+        background-color: $white;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        transition: all 300ms linear;        
+
+        & .product-features-reviews{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;    
+            
+            @media #{$tablet-device, $large-mobile}{
+                margin-bottom: 5px;
+            }
+        }
+        & .features{
+            font-size: 13px;
+            font-weight: 400;
+            text-transform: capitalize;
+            text-decoration: none;
+        }
+        & .review-star{
+            position: relative;
+            display: inline-block;
+
+            &::before{
+                content: "\e9d5" "\e9d5" "\e9d5" "\e9d5" "\e9d5";
+                font-family: 'plazaicon';
+                display: inline-block;
+                color: #dbdbdb;
+                font-weight: 400;
+                line-height: 1;
+                vertical-align: middle;                    
+            }
+            & .star{
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 2;
+                overflow: hidden;
+
+                &::before{
+                    content: "\e9d5" "\e9d5" "\e9d5" "\e9d5" "\e9d5";
+                    font-family: 'plazaicon';
+                    display: inline-block;
+                    color: #ffc600;
+                    font-weight: 400;
+                    line-height: 1;
+                    vertical-align: middle;                    
+                }
+            }
+        } 
+        & .product-name{
+            line-height: 1;
+
+            & a{
+                text-decoration: none;
+                font-weight: 600;
+                color: $dark;
+                font-size: 16px;
+                text-transform: capitalize;
+
+                @media #{$desktop-device}{
+                    font-size: 14px;
+                }
+
+                &:hover{
+                    color: $primary;
+                    text-decoration: underline;
+                }
+            }
+        }
+        & .product-price{
+            line-height: 1;
+            margin-top: 12px;
+            display: inline-block;
+            width: 100%;
+
+            & .sale-price{
+                color: #cc2121;
+                font-size: 18px;
+                font-weight: 500;
+                
+            }
+            & .old-price{
+                color: #888888;
+                font-weight: 400;
+                text-decoration: line-through;
+                margin-left: 5px;
+                font-size: 14px;                
+            }
+        }
+        & .desc-text {
+            display: block;
+            padding: 20px 0;
+            margin: 20px 0 0;
+            border-top: 1px solid #ebebeb;
+            color: #5a5a5a;
+            font-size: 14px;
+            line-height: 24px;
+        }
+        & .availability{
+            & p{
+                font-size: 14px;
+                color: $dark;
+            }
+        }
+    }
+
+    &.product-list-item{
+        display: flex;
+
+        @media #{$large-mobile}{
+            display: block;
+        }
+
+        & .image-block{
+            width: 33.33%;
+            height: 100%;
+            
+            @media #{$large-mobile}{
+                width: 100%;
+            }
+        }
+
+        & .product-desc{
+            flex: 1;
+            padding-top: 0;
+            padding-left: 30px;
+
+            @media #{$large-mobile}{
+                padding-top: 15px;
+                padding-left: 0;
+            }
+
+            & .product-name{
+                & a{
+                    font-size: 18px;
+
+                    @media #{$desktop-device}{
+                        font-size: 14px;
+                    }
+                    @media #{$small-mobile}{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover{
+        box-shadow: 0 0 20px 0 rgba(41, 44, 58, 0.15);
+        z-index: 5;
+
+        & .image-block{
+            & img{
+                &:not(:last-child) {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                &.image-hover{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            
+
+            & .product-action{
+                opacity: 1;
+                visibility: visible;
+                -webkit-transform: translateY(0) translateZ(0);
+                transform: translateY(0) translateZ(0);                
+            }
+        }
+    }
+}
+
+.swiper-slide {
+    &:not(.swiper-slide-visible) {
+        & .product-item{
+            &:hover {
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+
+// Product Active
+.product-wrapper{
+    margin-left: -15px;
+    margin-right: -15px;
+    position: relative;
+
+    & .product-item{
+        margin-top: 30px;
+    }
+}
+.product-active-2,
+.product-active{
+    & .swiper-container{
+        padding: 15px;
+        padding-top: 0;
+    }
+    & .swiper-wrapper{}
+    & .swiper-slide{}
+
+    & .swiper-button-prev,
+    & .swiper-button-next{
+        z-index: 15;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s linear;
+        left: -10px;
+
+        @media #{$laptop-device}{
+            left: 0;
+        }
+
+        &::after{
+            font-size: 30px;
+            color: #e2e2e2;
+            transition: all 0.3s linear;
+        }
+
+        &:hover{
+            &::after{
+                color: $primary;
+            }
+        }
+
+        @media #{$small-mobile}{
+            left: 0;
+        }
+    }
+
+    & .swiper-button-next{
+        left: auto;
+        right: -10px;
+
+        @media #{$laptop-device}{
+            right: 0;
+        }
+
+        @media #{$small-mobile}{
+            right: 0;
+        }
+    }
+
+    &:hover{
+        & .swiper-button-prev,
+        & .swiper-button-next{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+
+// Product Tabs 
+.product-tabs{
+    & .nav{        
+        & .nav-item{
+            padding: 0 30px;
+
+            @media #{$small-mobile}{
+                padding: 0 15px;
+            }
+
+            & a{
+                display: inline-block;
+                vertical-align: top;
+                font-size: 30px;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding: 0;
+                cursor: pointer;
+                text-decoration: none;
+
+                @media #{$desktop-device, $tablet-device}{
+                    font-size: 24px;
+                }
+                @media #{$large-mobile}{
+                    font-size: 20px;
+                }
+
+                @media #{$small-mobile}{
+                    font-size: 15px;
+                }
+
+                &.active{
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,354 @@
+{% extends 'index-2.html' %}
+
+{% block content %}
+
+
+    <div class="page-banner-section section">
+        <div class="container">
+            <!-- Pager Banner Start -->
+            <div class="page-banner-content text-center">
+                <h2 class="page-banner-title">Каталог</h2>
+                <ul class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'index' %}">Головна</a></li>
+    <li class="breadcrumb-item active">Каталог</li>
+                </ul>
+            </div>
+            <!-- Pager Banner End -->
+        </div>
+    </div>
+    <!-- Page Banner End -->
+
+    <!-- Shop Section Start -->
+    <div class="shop-section section section-padding mt-n10">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-9">
+
+                    <!-- Shop Top bar Start -->
+                    <div class="shop-top-bar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Shop Top content Start -->
+                                <div class="shop-top-content">
+                                    <ul class="nav">
+                                        <li><button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i class="fas fa-th"></i></button></li>
+                                        <li><button data-bs-toggle="tab" data-bs-target="#list"><i class="fas fa-list"></i></button></li>
+                                    </ul>
+                                    <p class="shop-text">{% if not cur_color and not cur_type and not cur_category %}Показано {{ sofas|length }} товари
+                                                        {% else %}Показано {{ sofas|length }} товари за фільтрами: {% for item in cur_category %}{{ item }}, {% endfor %}
+                                                                                                                   {% for item in cur_type %}{{ item }}, {% endfor %}
+                                                                                                                    {% for item in cur_color %}{{ item }}, {% endfor %}{% endif %}</p>
+                                </div>
+                                <!-- Shop Top content End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Shop Top bar End -->
+
+                    <!-- Tab Content Start -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="grid">
+                            <!-- Shop Grid Start -->
+                            <div class="shop-grid-items">
+                                <div class="row g-0">
+                                    {% for item in sofas %}
+                                    <div class="col-lg-4 col-sm-6">
+                                        <!-- Product Item Start -->
+                                        <div class="product-item">
+                                            <div class="image-block">
+                                                <a href="{% url 'model_view' item.slug %}">
+                                                    <img src="{{ item.main_image.url }}" alt="">
+                                                    <img class="image-hover" src="{{ item.main_image.url }}" alt="">
+                                                </a>
+                                                <div class="product-action">
+                                                    <a class="action-btn add-cart" href="#"><i class="icon-shopping-bag2"></i></a>
+                                                    <a class="action-btn wishlist " href="#"><i class="icon-heart"></i></a>
+                                                    <a class="action-btn compare" href="#"><i class="icon-sliders"></i></a>
+                                                    <a class="action-btn quick-view" href="#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-features-reviews">
+                                                    <a href="#" class="features">{{ item.category }}</a>
+
+                                                </div>
+                                                <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{{ item.title }}</a></h4>
+
+                                            </div>
+                                        </div>
+                                        <!-- Product Item End -->
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- Shop Grid End -->
+                        </div>
+                        <div class="tab-pane fade" id="list">
+                            <!-- Product Item Start -->
+                            <div class="shop-list-items">
+                                <!-- Product Item Start -->
+                                {% for item in sofas %}
+                                <div class="product-item product-list-item">
+                                    <div class="image-block">
+                                        <a href="{% url 'model_view' item.slug %}">
+                                            <img src="{{ item.main_image.url }}" alt="">
+                                            <img class="image-hover" src="{{ item.main_image.url }}" alt="">
+                                        </a>
+                                        <div class="product-action">
+                                            <a class="action-btn add-cart" href="#"><i class="icon-shopping-bag2"></i></a>
+                                            <a class="action-btn wishlist " href="#"><i class="icon-heart"></i></a>
+                                            <a class="action-btn compare" href="#"><i class="icon-sliders"></i></a>
+                                            <a class="action-btn quick-view" href="#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="product-desc">
+                                        <div class="product-features-reviews">
+                                            <a href="#" class="features">{{ item.category }}</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{{ item.title }}</a></h4>
+                                        <div class="desc-text">
+                                            <p>{{ item.desc|linebreaks }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product Item End -->
+                                {% endfor %}
+                            </div>
+                            <!-- Product Item End -->
+                        </div>
+                    </div>
+                    <!-- Tab Content End -->
+
+                    <!-- Bottom bar End -->
+                    <div class="bottom-bar d-flex flex-wrap justify-content-center justify-content-sm-between align-items-center">
+
+                        <!-- Page Pagination Start -->
+                        <div class="page-pagination">
+                            <ul class="pagination ">
+                                <li class="page-item"><a class="page-link" href="#"><i class="icon-chevron-left"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="icon-chevron-right"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Page Pagination End -->
+                    </div>
+                    <!-- Bottom bar End -->
+
+
+
+                </div>
+                <div class="col-lg-3">
+                    <!-- Sidebar Start -->
+                    <div class="sidebar-widget">
+                            <!-- Widget Item Start -->
+                            <div class="widget-item">
+                                <h5 class="widget-title">Категорії</h5>
+                            <form action="" method="get">
+                                <ul class="widget-color">
+                                    {% for item in categories %}
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input name="category" class="form-check-input shadow" data-color="#434A54" type="checkbox" value="{{ item.name }}">
+                    </span>
+                                            <a>{{ item.name }}</a>
+                                        </label>
+                                    </li>
+                                    {% endfor %}
+                                </ul><br>
+                            <input type="submit" value="Обновить" class="btn btn-lg btn-block btn-primary">
+                            </form>
+                            </div>
+                            <!-- Widget Item End -->
+
+                            <!-- Widget Item Start -->
+                            <div class="widget-item">
+                                <h5 class="widget-title">Size</h5>
+
+                                <ul class="widget-size">
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">S <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">M <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">L <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">XL <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Widget Item End -->
+
+                            <!-- Widget Item Start -->
+                            <div class="widget-item">
+                                <h5 class="widget-title">Paper Type</h5>
+
+                                <ul class="widget-type">
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Doted <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Plain <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Ruled <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Squarred <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Widget Item End -->
+
+                            <!-- Widget Item Start -->
+                            <div class="widget-item">
+                                <h5 class="widget-title">Compositions</h5>
+
+                                <ul class="widget-compositions">
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Cotton <span>(2)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Elastane <span>(5)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Polyester <span>(3)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Wool <span>(3)</span></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Widget Item End -->
+
+                            <!-- Widget Item Start -->
+                            <div class="widget-item">
+                                <h5 class="widget-title">Brand</h5>
+
+                                <ul class="widget-brand">
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Studio Design <span>(8)</span></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                    </span>
+                                            <a href="#">Graphic Corner <span>(5)</span></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Widget Item End -->
+
+                            <!-- Widget Item Start -->
+                            <div class="widget-item">
+                                <h5 class="widget-title">Price</h5>
+
+                                <div class="widget-price">
+                                    <input type="text" disabled id="amount">
+                                    <div id="slider-range"></div>
+                                </div>
+                            </div>
+                            <!-- Widget Item End -->
+
+                        </div>
+                        <!-- Filter Widget End -->
+
+
+                        <!-- Widget Tags Start -->
+                        <div class="widget-tags">
+                            <h5 class="widget-title">Tags :</h5>
+
+                            <div class="widget-tags-items">
+                                <a href="#">Men’s</a>
+                                <a href="#">Shoes</a>
+                                <a href="#">Clothing</a>
+                                <a href="#">Sunglasses</a>
+                                <a href="#">Accessories</a>
+                                <a href="#">Trending</a>
+                                <a href="#">Barber</a>
+                            </div>
+                        </div>
+                        <!-- Widget Tags End -->
+
+
+                    </div>
+                    <!-- Sidebar End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shop Section End -->
+
+   {% endblock %}

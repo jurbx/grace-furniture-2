@@ -1,0 +1,55 @@
+/*--
+/*  4.5 - Banner CSS
+/*----------------------------------------*/
+
+// Banner Wrapper 
+.banner-wrapper{}
+
+// Banner Wrapper  02
+.banner-wrapper-02{
+    position: relative;
+    z-index: 9;
+    padding: 0 30px;
+    margin-top: -100px;
+    background-color: $white;
+
+    @media #{$desktop-device}{
+        margin-top: -50px;
+    }
+    @media #{$tablet-device}{
+        margin-top: 30px;
+        padding: 0;
+    }
+    @media #{$large-mobile}{
+        margin-top: 30px;
+        padding: 0;
+    }
+}
+
+// Banner Box 
+.banner-box{
+    margin-top: 30px;
+
+    & a{
+        overflow: hidden;
+        display: block;
+
+        & img{
+            transition: all 0.3s linear;
+            width: 100%;
+        }
+    }
+
+    &:hover{
+        & a{
+            & img{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+
+
+
+

@@ -1,0 +1,174 @@
+/*--
+/*  5.1 - Footer Widget CSS
+/*----------------------------------------*/
+
+// footer Widget
+.footer-widget{
+    margin-top: 30px;
+
+    & .footer-widget-text{
+        padding-top: 30px;
+
+        & .desc{
+            margin-bottom: 50px;
+        }
+        & p{
+            font-size: 14px;
+            color: #ccc;
+
+            & strong{
+                color: $white;
+                text-transform: uppercase;
+            }
+        }
+    }
+    
+    & .widget-link{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        
+        & li{
+            & a{                
+                font-size: 14px;
+                line-height: 36px;
+                padding: 0;
+                display: block;
+                text-transform: capitalize;
+                color: #ccc;
+                margin-bottom: 0px;
+                display: block;
+                position: relative;
+                transition: all 300ms linear;
+                text-decoration: none;
+
+                &:hover{
+                    padding-left: 10px;
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    & .widget-newsletter{
+        & p{
+            font-size: 14px;
+            color: #ccc;
+        }
+        & .input-wrapper{
+            position: relative;
+
+            & input{
+                height: 45px;
+                background: #2b2b2b;
+                border: 0;
+                color: $white;
+                padding: 10px 100px 10px 20px;
+                display: inline-block;
+                width: 100%;
+                font-size: 13px;
+                border: none;
+                border-radius: 25px;     
+
+                &::placeholder{
+                    color: #ccc;
+                    opacity: 1;
+                }           
+            }
+            & button{
+                position: absolute;
+                top: 0;
+                right: 0;
+                text-transform: uppercase;
+                font-size: 0;
+                font-weight: 700;
+                font-size: 12px;
+                color: $white;
+                background: transparent;
+                border: 0;
+                box-shadow: none;
+                padding: 0 20px;
+                line-height: 48px;
+                height: 45px;
+                transition: all 300ms linear;
+
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    & .widget-social{
+        margin-top: 40px;
+
+        & ul{
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            & li{
+                margin-right: 8px;
+                margin-top: 8px;
+
+                &:last-child{
+                    margin-right: 0;
+                }
+
+                & a{
+                    display: block;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 42px;
+                    text-align: center;
+                    border-radius: 50%;
+                    text-decoration: none;
+                    color: $white;
+                    transition: all 0.3s linear;
+
+                    &.facebook{
+                        background-color: $facebook;
+                    }
+                    &.twitter{
+                        background-color: $twitter;
+                    }
+                    &.youtube{
+                        background-color: $youtube;
+                    }
+                    &.instagram{
+                        background-color: $instagram;
+                    }
+                    &.linkedin{
+                        background-color: $linkedin;
+                    }
+
+                    &:hover{
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }    
+}
+
+
+// Widget Title
+.footer-widget-title{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: 0;
+    position: relative;
+    color: $white;
+    font-weight: 700;    
+}
+
+
+
+
+
+
+

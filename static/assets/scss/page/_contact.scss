@@ -1,0 +1,102 @@
+/*--
+/*  4.17 - Contact CSS
+/*----------------------------------------*/
+
+// Single Contact Info 
+.single-contact-info{
+    display: flex;
+    margin-top: 30px;
+
+    & .info-icon{
+        & i{
+            width: 50px;
+            height: 50px;
+            line-height: 48px;
+            border: 1px solid #ebebeb;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 20px;
+            color: $dark;
+
+            @media #{$tablet-device}{
+                font-size: 16px;
+                width: 35px;
+                height: 35px;
+                line-height: 33px;
+            }
+            @media #{$small-mobile}{
+                font-size: 16px;
+                width: 45px;
+                height: 45px;
+                line-height: 43px;
+            }
+        }
+    }
+    & .info-content{
+        flex: 1;
+        padding-left: 30px;
+
+        @media #{$tablet-device}{
+            padding-left: 15px;
+        }
+        @media #{$small-mobile}{
+            padding-left: 20px;
+        }
+
+        & .title{
+            font-size: 20px;
+            font-weight: 700;
+            color: $primary;
+            margin-bottom: 15px;
+        }
+        & p{
+            font-size: 16px;
+            margin-bottom: 0;
+            line-height: 1.7;
+
+            @media #{$tablet-device}{
+                font-size: 14px;
+            }
+            @media #{$small-mobile}{
+                font-size: 14px;
+            }
+
+            & a{
+                text-decoration: none;
+                color: $body-color;
+                transition: all 0.3s linear;
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+
+// Form Message 
+.form-message{
+    margin-bottom: 0;
+
+    &.error,
+    &.success {
+        font-size:16px;
+        color:#07294d;
+        background:#ddd;
+        padding:10px 15px;
+        margin-left:15px;
+        margin-top:15px;
+    }
+    &.error {
+        color:red
+    }
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+
+/*--
+/*  2.1 - Button CSS	
+/*----------------------------------------*/
+
+.btn {
+    text-transform: uppercase;
+    border-radius: 25px;
+    height: 50px;
+    line-height: 48px;
+    font-weight: 700;
+
+    @media #{$large-mobile}{
+        height: 45px;
+        line-height: 43px;
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+@each $name, $value in $theme-colors {
+    & .btn-hover-#{$name} {
+        &:hover {
+            border-color: $value;
+            background-color: $value;
+            @if $name == light {
+                color: $dark;
+            } @else if $name == warning {
+                color: $dark;
+            } @else {
+                color: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,290 @@
+/*--
+/*  3.2 - Header Bottom CSS
+/*----------------------------------------*/
+
+// Header Bottom 
+.header-bottom{
+    position: relative;
+}
+
+// Primary Menu 
+.primary-menu{
+    border-top: 1px solid #dadada;
+    position: relative;
+
+    & ul{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+
+        & > li{
+            list-style: none;
+            position: relative;
+
+            & > a{
+                text-decoration: none;
+                display: block;
+                padding: 20px 0;
+                margin: 0 20px;
+                font-weight: 700;
+                font-size: 14px;
+                color: $dark;
+                background: transparent;
+                text-transform: uppercase;
+                line-height: 30px;
+                position: relative;   
+                transition: $baseTransition;           
+            }
+
+            &.menu-item-has-children {
+                & > a {
+                    &::after {
+                        content: "\e92e";
+                        font-family: 'plazaicon';
+                        margin-left: 10px;
+                        font-weight: 400;
+                    }
+                }
+            }
+            &.active {
+                & > a {
+                    color: $primary;
+                }
+            }
+            
+            &:nth-last-of-type(1),
+            &:nth-last-of-type(2){
+                & .sub-menu{
+                    & li{
+                        & .sub-menu{
+                            @media #{$desktop-device}{
+                                right: 100%;
+                                left: auto;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover{
+                & > a{
+                    color: $primary;                   
+                }
+                & > .mega-sub-menu,
+                & > .sub-menu{
+                    opacity: 1;
+                    visibility: visible;
+                    transform: rotateX(0deg);
+                    -o-transition: -o-transform 0.3s, opacity 0.3s;
+                    -ms-transition: -ms-transform 0.3s, opacity 0.3s;
+                    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+                    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;                    
+                }
+            }
+        }
+    }
+
+    // Sub Menu 
+    & .sub-menu{
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 230px;
+        border: 1px solid #e8e8e8;
+        background-color: $white;
+        z-index: 9;       
+        opacity: 0;
+        visibility: hidden;
+        transform-origin: 0% 0%;
+        transform-style: preserve-3d;
+        transform: rotateX(-75deg);
+
+        & li{
+            & a{
+                margin: 0;
+                padding: 5px 20px;
+                border-bottom: 1px solid #e8e8e8;
+                font-size: 13px;
+                font-weight: 400;
+                color: #555555;
+            }
+            &:last-child{
+                & > a{
+                    border-bottom: 0;
+                }
+            }
+
+            &.menu-item-has-children {
+                & > a {
+                    &::after {
+                        content: "\e930";
+                        font-family: 'plazaicon';
+                        margin-left: 10px;     
+                        float: right;        
+                        display: block;           
+                    }
+                }
+            }
+
+            & .sub-menu{
+                left: 100%;
+                top: -1px;
+            }
+
+            &:hover {   
+                & > a{
+                    padding-left: 30px;
+                }             
+                & > .sub-menu{
+                    opacity: 1;
+                    visibility: visible;
+                    transform: rotateX(0deg);
+                    -o-transition: -o-transform 0.3s, opacity 0.3s;
+                    -ms-transition: -ms-transform 0.3s, opacity 0.3s;
+                    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+                    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;                    
+                }
+            }
+        }
+    }
+
+    // Mega Sub Menu 
+    & .mega-sub-menu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 1140px;
+        border: 1px solid #eeeeee;
+        background-color: $white;
+        z-index: 9;
+        padding: 30px;    
+        opacity: 0;
+        visibility: hidden;
+        transform-origin: 0% 0%;
+        transform-style: preserve-3d;
+        transform: rotateX(-75deg);  
+        box-sizing: border-box;
+        
+        @media #{$desktop-device}{
+            width: 930px;
+        }
+
+        & > li{
+            width: 25%;
+
+            & .menu-title{
+                color: #292929;
+                line-height: 1;
+                text-transform: capitalize;
+                font-size: 14px;
+                font-weight: 700;
+                display: block;    
+                margin: 0;
+                padding: 0;        
+                
+                &::after{
+                    display: none;
+                }
+            }
+
+            & .menu-item{
+                flex-direction: column;
+                margin-top: 30px;
+
+                & > li{
+                    & > a{
+                        padding: 0;
+                        margin: 0;
+                        color: #707070;
+                        text-transform: capitalize;
+                        line-height: 30px;
+                        font-weight: 400;
+                        font-size: 14px;
+                        display: block;
+                    }
+
+                    &:hover{
+                       & > a{
+                           padding-left: 10px;
+                           color: $primary;
+                       }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Primary Menu 02
+.primary-menu-02{
+    border-top: 0;
+    position: static;
+
+    & ul{
+        justify-content: flex-start;
+
+        & > li{
+            & > a{
+                color: $white;          
+            }
+            &.active {
+                & > a {
+                    color: $primary;
+                }
+            }
+
+            &:hover{
+                & > a{
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+
+// sticky
+.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 220;
+    animation: sticky 1s;
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
+    background-color: $white;
+    padding: 0;
+
+    & > .primary-menu{    
+        & > ul{    
+            & > li{    
+                & > a{
+                    padding: 15px 0;         
+                }
+            }
+        }
+    }
+}
+
+@-webkit-keyframes sticky {
+    0%{
+        transform: translateY(-100%)
+    }
+    100%{
+        transform: translateY(0%)
+    }
+}
+
+@keyframes sticky {
+    0%{
+        transform: translateY(-100%)
+    }
+    100%{
+        transform: translateY(0%)
+    }
+}

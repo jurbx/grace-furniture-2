@@ -1,0 +1,310 @@
+/*----------------------------------------*/
+/*  1. Template default CSS
+/*----------------------------------------*/
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+/*-- Google Font --*/
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+/*-- Common Style --*/
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    font-family: $body-font;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.714;
+    position: relative;
+    visibility: visible;
+    overflow-X: hidden;
+    color: #707070;
+
+    &[dir="rtl"] {
+        text-align: right;
+    }
+}
+
+p:last-child{
+    margin-bottom: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+input,
+button{
+    outline: none;
+
+    &:focus{
+        outline: none;
+    }
+}
+a, button {
+    color: inherit;
+    display: inline-block;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+a, button, img, input {
+    transition: $transition-base;
+    outline: 0;
+
+    &:focus{
+        outline: 0;
+    }
+}
+
+a:focus {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: $primary;
+}
+ul,ol{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+button, input[type="submit"] {
+    cursor: pointer;
+}
+img {
+    max-width: 100%;
+}
+
+input, textarea {
+    @include placeholder {
+        opacity: 1;
+    }
+}
+
+/* Section Style */
+.section,
+.section-fluid {
+    float: left;
+    width: 100%;
+}
+.section-fluid {
+    padding-right: 45px;
+    padding-left: 45px;
+    @media #{$desktop-device,
+    $tablet-device,
+    $large-mobile} {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    @media #{$extra-small-mobile} {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+// Section padding
+.section-padding{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    // Responsive
+    @media #{$tablet-device}{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @media #{$large-mobile}{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+.section-padding-02{
+    padding-top: 100px;
+    // Responsive
+    @media #{$tablet-device}{
+        padding-top: 60px;
+    }
+    @media #{$large-mobile}{
+        padding-top: 60px;
+    }
+}
+
+// Section margin
+.section-margin{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    // Responsive
+    @media #{$tablet-device}{
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    @media #{$large-mobile}{
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+}
+.section-margin-02{
+    margin-top: 70px;
+    // Responsive
+    @media #{$tablet-device}{
+        margin-top: 3 0px;
+    }
+    @media #{$large-mobile}{
+        margin-top: 60px;
+    }
+}
+
+// Section padding
+.section-title{
+    & .title{
+        margin: 0;
+        position: relative;
+        text-transform: capitalize;
+        vertical-align: top;
+        font-weight: 700;   
+        font-size: 28px;
+        color: $dark;
+    }
+    & p{
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 15px;
+
+        & br{
+            @media #{$small-mobile}{
+                display: none;
+            }
+        }
+    }
+}
+
+// tab Content 
+.tab-content{
+    & .tab-pane{
+        display: block;
+        overflow: hidden;
+        height: 0;
+        visibility: hidden;
+        max-width: 100%;
+        opacity: 0;
+        
+        &.active{
+            height: auto;
+            visibility: visible;
+            opacity: 1;
+            overflow: visible;
+        }
+    }
+}
+
+// Custom Container 
+.custom-container{
+    @media #{$extraBig-device}{
+        max-width: 1920px;
+        padding: 0 30px;
+    }
+}
+
+// Ubani Slider Banner
+.ubani-slider-banner{
+    @media #{$extraBig-device}{        
+        padding: 30px;
+        padding-bottom: 0;
+    }
+}
+
+// BG Cover
+.bg-cover{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// Swiper Button Prev & Next
+.swiper-button-prev,
+.swiper-button-next{
+    &:focus{
+        outline: none;
+    }
+}
+
+// bottom bar
+.bottom-bar{
+    padding-top: 30px;
+
+    & p{
+        line-height: 20px;
+        font-size: 14px;
+        padding: 5px;
+        margin: 0;
+        margin-top: 25px;
+        color: #222222;
+        font-weight: 400;
+        text-transform: capitalize;        
+    }
+}
+
+// Page Pagination
+.page-pagination{
+    margin-top: 30px;
+
+    & .pagination{
+        margin-bottom: 0;
+
+        & .page-item{
+            margin: 0 2px;
+
+            & .page-link{
+                font-weight: 400;
+                color: $dark;
+                padding: 0;
+                height: 38px;
+                line-height: 38px;
+                background: #f1f1f1;
+                font-size: 14px;
+                display: inline-block;
+                width: 38px;
+                border-radius: 100%;
+                text-align: center;
+                vertical-align: top;  
+                border: 0;
+                transition: all 0.3s linear;
+                
+                &.active,
+                &:hover{
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+

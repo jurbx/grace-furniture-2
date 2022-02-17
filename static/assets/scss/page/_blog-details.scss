@@ -1,0 +1,291 @@
+/*--
+/*  4.16 - Blog Details CSS
+/*----------------------------------------*/
+
+// Blog Details 
+.blog-details{
+    margin-top: 50px;
+
+    & img{
+        width: 100%;
+    }
+    & .blog-title{
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #292929;
+        text-transform: capitalize;
+        position: relative;
+        display: block;
+        margin-bottom: 22px;   
+        margin-top: 26px;
+        transition: all 0.3s linear;
+        text-decoration: none;
+
+        @media #{$small-mobile}{
+            font-size: 18px;
+        }      
+    }
+    & .blog-meta{
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+
+        & > p{
+            font-size: 14px;
+            color: #9d9d9d;   
+            margin-bottom: 0;
+
+            & + p {
+                &::before {
+                    content: "/";
+                    display: inline-block;
+                    margin: 0 7px;
+                }
+            }
+
+            & a{
+                text-decoration: none;
+                color: $primary;
+            }
+            &.meta-author{}
+            &.meta-date{}
+        }
+    }
+    & p{}
+    & blockquote{
+        
+    }
+    & .dec-img-wrapper{
+        & .dec-img{
+            margin-top: 30px;
+        }
+    }
+}
+
+// Blog Dec Tags Social 
+.blog-dec-tags-social{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 35px;
+
+    & span{
+        font-size: 16px;
+        font-weight: 600;
+        color: $dark;
+    }
+    & .blog-dec-tags{
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+
+        & .tags{
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 5px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            & li{
+                margin-left: 5px;
+                margin-top: 5px;
+
+                & a{
+                    height: 30px;
+                    padding: 0 10px;
+                    line-height: 28px;
+                    border: 1px solid #e1e1e1;
+                    text-align: center;
+                    font-size: 14px;
+                    border-radius: 3px;
+                    transition: all 0.3s linear;
+                    display: block;
+                    text-decoration: none;
+                }
+                &:hover{
+                    & a{
+                        background-color: $primary;
+                        border-color: $primary;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+    & .blog-dec-social{
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+
+        & .social{
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            & li{
+                margin-left: 15px;
+
+                & a{
+                    font-size: 16px;
+                    color: $body-color;
+                    transition: all 0.3s linear;
+                    display: block;
+                    text-decoration: none;
+                }
+                &:hover{
+                    & a{
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Blog next Previous 
+.blog-next-previous{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    margin-top: 20px;
+    border-top: 1px solid #e1e1e1;
+
+    & .left,
+    & .right{
+        font-size: 14px;
+        font-weight: 600;
+        color: $dark;
+
+        & a{
+            color: $dark;
+            text-decoration: none;
+            transition: all 0.3s linear;
+    
+            &:hover{
+                color: $primary;
+            }
+        }
+        
+        & a{
+            
+        }
+
+        & i{
+            font-size: 13px;
+        }
+    }
+    & .right{}
+}
+
+
+// Blog Comment 
+.blog-comment{
+    & .comment-wrapper{
+        & .single-form{
+            & textarea{
+                height: 180px;
+                padding-top: 10px;
+            }
+        }
+    }
+    & .comment-title{
+        text-transform: uppercase;
+        font-size: 18px;
+        color: $dark;
+        font-weight: 600;        
+    }
+    & ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    & .comment-items{
+        padding-top: 25px;
+
+        & li{
+            margin-top: 30px;
+        }
+
+        & .comment-replay{
+            padding-left: 150px;
+
+            @media #{$large-mobile}{
+                padding-left: 0;
+            }
+
+            & .single-comment{
+                background-color: #f7f7f7;
+                padding: 15px 15px 12px;
+            }
+        }
+    }
+}
+
+
+// Single Comment 
+.single-comment{
+    display: flex;
+
+    @media #{$small-mobile}{
+        display: block;
+    }
+
+    & .comment-avater{
+        & img{
+            border-radius: 50%;
+            width: 120px;
+        }
+    }
+    & .comment-content{
+        padding-left: 30px;
+        flex: 1;
+
+        @media #{$small-mobile}{
+            padding-top: 25px;
+            padding-left: 0;
+        }
+
+        & .avater-name{
+            font-size: 16px;
+            font-weight: 600;
+            color: $dark;
+        }
+        & .date{
+            font-size: 14px;
+            font-weight: 400;
+            color: $body-color;
+        }
+        & p{
+            margin-top: 15px;
+        }
+        & .replay{
+            padding-left: 48px;
+            position: relative;
+            color: $dark;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+
+            &::before{
+                background-color: $dark;
+                content: "";
+                height: 1px;
+                left: 0;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: all 0.3s ease 0s;
+                width: 37px;
+            }
+        }
+    }
+}

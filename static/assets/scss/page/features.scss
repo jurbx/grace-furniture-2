@@ -1,0 +1,52 @@
+/*--
+/*  4.2 - Features CSS
+/*----------------------------------------*/
+
+
+// Features Section 
+.features-section{
+    border-bottom: 1px solid #e8e8e8;
+}
+
+
+.single-features-item{
+    text-align: center;
+    max-width: 360px;
+    margin: 0 auto;
+
+    & .icon{
+        margin-bottom: 25px;
+    }
+    & .content{
+        & .title{
+            color: #292929;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 14px;
+            line-height: 20px;
+            display: block;
+            margin-bottom: 15px;
+
+            @media #{$tablet-device}{
+                margin-bottom: 15px;
+            }
+            @media #{$large-mobile}{
+                margin-bottom: 15px;
+            }
+        }
+        & p{
+            color: #999999;
+            font-weight: 400;
+            line-height: 24px;
+            display: block;
+            margin: 0;
+            font-size: 14px;  
+            margin-bottom: 0;          
+        }
+    }
+}
+
+
+
+

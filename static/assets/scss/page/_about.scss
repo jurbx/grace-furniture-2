@@ -1,0 +1,67 @@
+/*--
+/*  4.3 - About CSS
+/*----------------------------------------*/
+
+
+ .about-image{
+    & img{
+        width: 100%;
+    }
+}
+.about-text{    
+    
+    @media #{$tablet-device, $large-mobile}{
+        position: relative;
+        width: 100%;
+        margin-top: 45px;
+    }
+
+    & .title{
+        font-size: 46px;
+        color: $dark;
+        line-height: 1;
+        font-weight: 700;
+        margin-bottom: 30px;    
+
+        @media #{$tablet-device}{
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        @media #{$large-mobile}{
+            font-size: 28px;
+        }
+    }
+    & p{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.75;    
+
+        @media #{$tablet-device}{
+            font-size: 14px;
+        }
+        @media #{$large-mobile}{
+            font-size: 14px;
+        }
+        
+        & a{
+            text-decoration: none;
+            color: $primary;
+        }
+    }
+
+    & .about-text-wrapper{
+        @media #{$extraBig-device}{
+            padding-left: 60px;
+        }
+    }
+
+    & img{
+        padding-top: 30px;
+    }
+}
+
+
+
+
+
+

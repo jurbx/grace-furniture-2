@@ -1,0 +1,84 @@
+/*--
+/*  4.9 - Shop CSS
+/*----------------------------------------*/
+
+// Shop Section
+.shop-section{}
+
+// Shop Top Bar 
+.shop-top-bar{
+    padding-top: 30px;
+}
+
+// Shop Top Content 
+.shop-top-content{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    & .nav{
+        margin-right: 50px;
+        position: relative;
+        z-index: 1;        
+
+        & li{
+            & button{
+                font-size: 21px;
+                line-height: 30px;
+                height: 30px;
+                margin-right: 15px;
+                color: #dbdbdb;
+                background: transparent;
+                transition: all 300ms linear;    
+                padding: 0;
+                border: 0;
+                background: none;
+                
+                &:hover,
+                &.active{
+                    color: $primary;
+                }
+            }
+        }        
+    }
+    & p{
+        line-height: 20px;
+        font-size: 14px;
+        padding: 5px;
+        margin: 0;
+        color: #222222;
+        font-weight: 400;
+        text-transform: capitalize;        
+    }
+
+    & select{
+        width: 370px;
+        padding: 2px 15px;
+        border: 1px solid #ebebeb;
+        font-size: 13px;
+        height: 30px;
+        outline: none;
+
+        @media #{$desktop-device}{
+            width: 240px;
+        }
+
+        @media #{$tablet-device}{
+            width: 210px;
+        }
+        @media #{$small-mobile}{
+            width: 210px;
+        }
+    }
+}
+
+// Shop Grid Items
+.shop-grid-items,
+.shop-list-items{
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-top: 30px;
+}
+
+
+

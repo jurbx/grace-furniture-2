@@ -1,0 +1,340 @@
+{% extends 'index-2.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="page-banner-section section">
+        <div class="container">
+            <!-- Pager Banner Start -->
+            <div class="page-banner-content text-center">
+                <h2 class="page-banner-title">Каталог</h2>
+                <ul class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'index' %}">Головна</a></li>
+                   <li class="breadcrumb-item"><a href="{% url 'cart_view' %}">Каталог</a></li>
+                    <li class="breadcrumb-item active">{{ sofa.title }}</li>
+                </ul>
+            </div>
+            <!-- Pager Banner End -->
+        </div>
+    </div>
+
+    <!-- Shop Single Section Start -->
+    <div class="shop-section section section-padding-02 mt-n10">
+        <div class="container">
+            <div class="row gx-10">
+                <div class="col-lg-6">
+                    <!-- Shop Gallery image Start -->
+                    <div class="vertical-slider-wrap">
+                        <div class="swiper-container pd-vertical-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="single-img zoom">
+                                        <img src="{{ sofa.main_image.url }}" alt="Product Image">
+                                        <div class="inner-stuff">
+                                            <div class="gallery-item" data-bs-src="{{ sofa.main_image.url }}">
+                                                <a href="javascript:void(0)">
+                                                    <i class="lastudioicon-full-screen"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if img %}
+                                    {% for item in img %}
+                                <div class="swiper-slide">
+                                    <div class="single-img zoom">
+                                        <img src="{{ item.img.url }}" alt="Product Image">
+                                        <div class="inner-stuff">
+                                            <div class="gallery-item" data-bs-src="{{ item.img.url }}">
+                                                <a href="javascript:void(0)">
+                                                    <i class="lastudioicon-full-screen"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="product-label">
+                                <span class="new">New</span>
+                            </div>
+                            <a href="#gallery-1" class="btn-gallery"><i class="far fa-expand"></i></a>
+                        </div>
+                        <div class="vertical-slider-nav swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{{ sofa.main_image.url }}" alt="Product Thumnail">
+                                </div>
+                                {% if img %}
+                                    {% for item in img %}
+                                <div class="swiper-slide">
+                                    <img src="{{ item.img.url }}" alt="Product Thumnail">
+                                </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div id="gallery-1" class="gallery-hidden">
+                            <a href="{{ sofa.main_image.url }}">Image 1</a>
+                        {% if img %}
+                            {% for item in img %}
+                            <a href="{{ item.img.url }}">Image 2</a>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                    <!-- Shop Gallery image End -->
+                </div>
+                <div class="col-lg-6">
+                    <!-- Shop Single Start -->
+                    <div class="shop-single-content">
+                        <h3 class="product-name">{{ sofa.title }}</h3>
+                        <p class="reference">{{ sofa.category }}</p>
+                        <div class="product-description">
+                            <ul>
+                                <li>{{ sofa.desc|linebreaks }}</li>
+                            </ul>
+                        </div>
+                        <div class="product-cart">
+                            <a href="#" class="btn btn-dark btn-hover-primary">Buy Now</a>
+                        </div>
+                    </div>
+                    <!-- Shop Single End -->
+                </div>
+            </div>
+
+            <!-- Shop Tabs Start -->
+            <div class="shop-tab section-padding-02">
+                <ul class="nav justify-content-center">
+                    <li><a class="active" data-bs-toggle="tab" href="#tab1">Description</a></li>
+                    <li><a data-bs-toggle="tab" href="#tab2">Product Details</a></li>
+                    <li><a data-bs-toggle="tab" href="#tab3">Reviews</a></li>
+                </ul>
+                <!-- Tab Content Start -->
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tab1">
+                        <!-- product description Start  -->
+                        <div class="product-description">
+                            <ul>
+                                <li>Score extra points when it comes to your sporty look with the Juicy Couture™ Juicy Quilted Terry Track Jacket.</li>
+                                <li>Soft terry construction in a quilted design.</li>
+                                <li>Front zipper closure.</li>
+                                <li>Brand detail at the back neckline.</li>
+                                <li>Long-sleeve coverage.</li>
+                                <li>Hand pockets.</li>
+                                <li>Straight hemline.</li>
+                                <li>61% cotton, 39% polyester;</li>
+                                <li>Lining: 58% cotton, 42% polyester.</li>
+                                <li>Machine wash, tumble dry.</li>
+                                <li>Imported.</li>
+                                <li>Product measurements were taken using size SM (US 2-4). Please note that measurements may vary by size.</li>
+                            </ul>
+                        </div>
+                        <!-- product description End -->
+                    </div>
+                    <div class="tab-pane fade" id="tab2">
+                        <!-- product details Start  -->
+                        <div class="product-details">
+                            <div class="product-manufacturer">
+                                <a href="#"><img src="assets/images/manu-facturer.jpg" alt=""></a>
+                            </div>
+                            <div class="product-reference">
+                                <p>Reference <span>demo_3</span></p>
+                            </div>
+                            <div class="product-stock">
+                                <p>In stock <span>1200 Items</span></p>
+                            </div>
+                            <div class="product-features">
+                                <p class="date">data-bs sheet</p>
+                                <dl class="data-bs-sheet">
+                                    <dt class="name">Compositions</dt>
+                                    <dd class="value">Elastane</dd>
+                                    <dt class="name">Paper Type</dt>
+                                    <dd class="value">Plain</dd>
+                                    <dt class="name">Color</dt>
+                                    <dd class="value">White</dd>
+                                    <dt class="name">Size</dt>
+                                    <dd class="value">M</dd>
+                                    <dt class="name">Frame Size</dt>
+                                    <dd class="value">60x90cm</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <!-- product details End -->
+                    </div>
+                    <div class="tab-pane fade" id="tab3">
+                        <!-- product reviews Start  -->
+                        <div class="product-reviews">
+                            <div class="reviews-comment">
+                                <!-- Single Comment Start  -->
+                                <div class="single-comment">
+                                    <div class="comment-author">
+                                        <img src="assets/images/author/author-1.png" alt="">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="author-name-rating">
+                                            <h6 class="name">Rosie Silva</h6>
+                                            <div class="review-star">
+                                                <div class="star" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="date">11/20/2020</span>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse deleniti itaque velit explicabo at eum incidunt vel reprehenderit maxime eos facere ut pariatur voluptas aut, porro quia molestias sequi cupiditate!</p>
+                                    </div>
+                                </div>
+                                <!-- Single Comment Start  -->
+                                <!-- Single Comment Start  -->
+                                <div class="single-comment">
+                                    <div class="comment-author">
+                                        <img src="assets/images/author/author-2.png" alt="">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="author-name-rating">
+                                            <h6 class="name">Rosie Silva</h6>
+                                            <div class="review-star">
+                                                <div class="star" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="date">11/20/2020</span>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse deleniti itaque velit explicabo at eum incidunt vel reprehenderit maxime eos facere ut pariatur voluptas aut, porro quia molestias sequi cupiditate!</p>
+                                    </div>
+                                </div>
+                                <!-- Single Comment Start  -->
+                                <!-- Single Comment Start  -->
+                                <div class="single-comment">
+                                    <div class="comment-author">
+                                        <img src="assets/images/author/author-3.png" alt="">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="author-name-rating">
+                                            <h6 class="name">Rosie Silva</h6>
+                                            <div class="review-star">
+                                                <div class="star" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="date">11/20/2020</span>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse deleniti itaque velit explicabo at eum incidunt vel reprehenderit maxime eos facere ut pariatur voluptas aut, porro quia molestias sequi cupiditate!</p>
+                                    </div>
+                                </div>
+                                <!-- Single Comment Start  -->
+                            </div>
+                            <div class="review-form">
+                                <h2 class="form-title">Add a review </h2>
+
+                                <form action="#">
+                                    <div class="review-rating">
+                                        <h5 class="title">Review:</h5>
+
+                                        <ul id='stars'>
+                                            <li class='star' title='Poor' data-bs-value='1'>
+                                                <i class='icon-star'></i>
+                                            </li>
+                                            <li class='star' title='Fair' data-bs-value='2'>
+                                                <i class='icon-star'></i>
+                                            </li>
+                                            <li class='star' title='Good' data-bs-value='3'>
+                                                <i class='icon-star'></i>
+                                            </li>
+                                            <li class='star' title='Excellent' data-bs-value='4'>
+                                                <i class='icon-star'></i>
+                                            </li>
+                                            <li class='star' title='WOW!!!' data-bs-value='5'>
+                                                <i class='icon-star'></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="single-form">
+                                                <input type="text" class="form-control" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form">
+                                                <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="single-form">
+                                                <textarea class="form-control" placeholder="Comment"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="single-form">
+                                                <button class="btn btn-primary btn-hover-dark">Post Comment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="reviewCheck">
+                                        <label class="form-check-label" for="reviewCheck">NOTIFY ME OF NEW POSTS BY EMAIL.</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- product reviews End -->
+                    </div>
+                </div>
+                <!-- Tab Content End -->
+            </div>
+            <!-- Shop Tabs End -->
+        </div>
+    </div>
+    <!-- Shop Single Section End -->
+
+    <!-- Related Product Start -->
+    <div class="section section-padding mt-n2 mb-n3">
+        <div class="container">
+            <!-- Section Title Start -->
+            <div class="section-title text-center">
+                <h2 class="title">Related Products</h2>
+                <p>Consequat magna, massa vel suspendisse morbi aliquam faucibus <br> ligula ante ipsum ac nulla.</p>
+            </div>
+            <!-- Section Title End -->
+
+            <!-- Product Wrapper Start -->
+            <div class="product-wrapper product-active mt-n1">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for item in more_sofa %}
+                            <div class="swiper-slide">
+                            <!-- Product Item Start -->
+                            <div class="product-item">
+                                <div class="image-block">
+                                    <a href="{% url 'model_view' item.slug %}">
+                                        <img src="{{ item.main_image.url }}" alt="">
+                                        <img class="image-hover" src="{{ item.main_image.url }}" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <a class="action-btn add-cart" href="#"><i class="icon-shopping-bag2"></i></a>
+                                        <a class="action-btn wishlist " href="#"><i class="icon-heart"></i></a>
+                                        <a class="action-btn compare" href="#"><i class="icon-sliders"></i></a>
+                                        <a class="action-btn quick-view" href="#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-desc">
+                                    <div class="product-features-reviews">
+                                        <a href="#" class="features">{{ item.category }}</a>
+
+                                    </div>
+                                    <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{{ item.title }}</a></h4>
+                                </div>
+                            </div>
+                            <!-- Product Item End -->
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <!-- Product Wrapper End -->
+        </div>
+    </div>
+    <!-- Related Product End -->
+
+    {% endblock %}

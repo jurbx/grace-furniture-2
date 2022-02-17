@@ -1,0 +1,199 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+        <!-- Product section-->
+        <style>
+            .product-img-container {
+                aspect-ratio: 1 / 1;
+                padding: 0;
+            }
+            .product-img-container > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .product-photos-container .product-img-container {
+                cursor: pointer;
+            }
+            .lead {
+                position: relative;
+                overflow: hidden;
+            }
+            .lead::after {
+                display: block;
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(to bottom, transparent 80%, #fff);
+            }
+            .lead.visible::after {
+                display: none;
+            }
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                $(".product-photos-container").height($(".product-photos-container").width() / 6)
+                
+                // Change images by click
+                $(".product-photos-container").click(e => {
+                    $(".product-main-img").prop("src", $(e.target).prop("src"))
+                })
+
+                let initialLeadHeight = $(".lead").height()
+
+                // When page loads, check if product description doesn't need the show more/less button
+                if( initialLeadHeight
+                    <= $(".product-img-container").height()
+                    + $(".product-photos-container").height()
+                ) {
+                    $("#toggleProductDesc").css({ display: "none" })
+                    $(".lead").addClass("visible")
+                } else {
+                    changeLeadMaxHeight()
+                }
+
+                function changeLeadMaxHeight() {
+                    console.log($(".product-img-container").height() + $(".product-photos-container").height(), $(".lead").height())
+
+                    $(".lead").css({
+                        "max-height": $(".product-img-container").height() + $(".product-photos-container").height()
+                    })
+                }
+
+                $(window).resize(() => {
+                    changeLeadMaxHeight()
+
+                    if( initialLeadHeight
+                        <= $(".product-img-container").height()
+                        + $(".product-photos-container").height()
+                    ) {
+                        $("#toggleProductDesc").css({ display: "none" })
+                        if( !$(".lead").hasClass("visible") ) {
+                            $(".lead").addClass("visible")
+                        }
+                    } else {
+                        $("#toggleProductDesc").css({ display: "initial" })
+                        $(".lead").toggleClass("visible", toggleDesc)
+                    }
+
+                    /*
+                    if( $(".lead").height()
+                        <= $(".product-img-container").height()
+                        + $(".product-photos-container").height()
+                        && $(".lead").hasClass("visible")
+                    ) {
+                        $("#toggleProductDesc").css({ display: "none" })
+                    } else {
+                        $("#toggleProductDesc").css({ display: "initial" })
+                    }
+                    */
+                })
+
+                let toggleDesc = false
+                $("#toggleProductDesc").click(e => {
+                    toggleDesc = !toggleDesc
+                    $(".lead").toggleClass("visible", toggleDesc)
+
+                    if(toggleDesc) {
+                        $(e.target).text("Show less")
+                        $(".lead").css({"max-height": "max-content"})
+                    } else {
+                        $(e.target).text("Show more")
+                        changeLeadMaxHeight()
+                    }
+                })
+
+                // Swiper Slider
+                new Swiper(".product-photos-container", {
+                    slidesPerView: 6,
+                    watchOverflow: true
+                })
+            })
+        </script>
+
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-6">
+                        <div class="product-img-container">
+                            <img class="card-img-top mb-5 mb-md-0 product-main-img"
+                                src="{% if sofa.main_image %}{{ sofa.main_image.url }}{% else %}{% static 'sofamodel/no_image.png' %}{% endif %}"
+                                alt="" />
+                        </div>
+                        <div class="row product-photos-container swiper">
+                            <div class="swiper-wrapper">
+                            <div class="col-2 product-img-container active swiper-slide">
+                                <img src="{% if sofa.main_image %}{{ sofa.main_image.url }}{% else %}{% static 'sofamodel/no_image.png' %}{% endif %}" alt="">
+                            </div>
+                            {% for item in img %}
+                            <div class="col-2 product-img-container swiper-slide">
+                                <img src="{{ item.img.url }}" alt="">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+{#                        <div class="small mb-1">SKU: BST-498</div>#}
+                        <h1 class="display-5 fw-bolder">{{ sofa.title }}</h1>
+                        <div class="fs-5 mb-5">
+                            <span class="text-decoration-line-through">$45.00</span>
+                            <span>$40.00</span>
+                        </div>
+                        <div class="lead">{{ sofa.desc }}</div>
+                        <div class="d-flex">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                            <button class="btn btn-outline-dark flex-shrink-0 me-3" type="button">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                            <button class="btn btn-outline-dark" id="toggleProductDesc">Show more</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Related items section-->
+        <section class="py-5 bg-light">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="fw-bolder mb-4">Related products</h2>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+                    {% if more_sofa %}
+                        {% for item in more_sofa %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{% if item.main_image %}{{ item.main_image.url }}{% else %}{% static 'sofamodel/no_image.png' %}{% endif %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{ item.title }}</h5>
+                                    <!-- Product price-->
+                                    $40.00 - $80.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'model_view' item.slug %}">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
+    {% block script %}
+        <!-- Bootstrap core JS-->
+        <!-- Core theme JS-->
+        <script src="{% static 'sofamodel/sofa_detail/js/scripts.js' %}"></script>
+    {% endblock %}
+
