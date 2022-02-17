@@ -2942,27 +2942,21 @@ blockquote p {
   background-size: cover;
 }
 
-@media all{
-  img{
-    min-width: 100%;
-  }
-}
-
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .single-slider {
-    height: 820px;
+    height: 100%;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-slider {
-    height: 720px;
+    height: 100%;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .single-slider {
-    height: 680px;
+    height: 100%;
   }
 }
 
@@ -2973,27 +2967,27 @@ blockquote p {
 }
 
 .slider-content {
-  max-width: 630px;
+  max-width: 100%;
   padding-top: 135px;
   opacity: 0;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .slider-content {
-    max-width: 430px;
+    max-width: 100%;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-content {
     padding-top: 114px;
-    max-width: 480px;
+    max-width: 100%;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .slider-content {
-    max-width: 70%;
+    max-width: 100%;
     padding-top: 125px;
   }
 }
