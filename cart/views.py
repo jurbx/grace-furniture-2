@@ -25,7 +25,7 @@ def get_random3(DBmodel, slug):
 
 
 def three_d_model(request, slug):
-    model = Cart3dModels.objects.filter(sofa__slug=slug)
+    model = Cart3dModels.objects.get(sofa__slug=slug)
     return render(request, '3d_model.html', context={'file': model, 'slug': slug})
 
 
