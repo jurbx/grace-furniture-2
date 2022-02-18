@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.utils.text import slugify
 
-from .models import SofaModel, CartImages, SofaModels, SofaTypes, SofaColor
+from .models import SofaModel, CartImages, SofaModels, SofaTypes, SofaColor, Cart3dModels
 import random
 from .forms import SofaCreateForm, SofaEditForm, ImageForm, FbxForm
 from django.views import generic
@@ -22,6 +22,11 @@ def get_random3(DBmodel, slug):
         if len(queryset) >= 6:
             return queryset
     return model
+
+
+def three_d_model(request, slug):
+    model = Cart3dModels.objects.get(sofa__slug=slug)
+    return render(request, '3d_model.html', context={'file': model, 'slug': slug})
 
 
 def cart_view(request):
@@ -55,7 +60,11 @@ def model_view(request, slug):
     sofa = SofaModel.objects.get(slug=slug)
     img = CartImages.objects.filter(sofa=sofa)
     more_sofa = get_random3(SofaModel, slug)
-    return render(request, 'shop_product_detail.html', context={'sofa': sofa, 'img': img, 'more_sofa': more_sofa})
+    fbx = Cart3dModels.objects.get(sofa__slug=slug)
+    return render(request, 'shop_product_detail.html', context={'sofa': sofa,
+                                                                'img': img,
+                                                                'more_sofa': more_sofa,
+                                                                'fbx': fbx})
 
 
 class CreateModelView(generic.CreateView):
