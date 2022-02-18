@@ -61,7 +61,8 @@ def model_view(request, slug):
     img = CartImages.objects.filter(sofa=sofa)
     more_sofa = get_random3(SofaModel, slug)
     if fbx := Cart3dModels.objects.filter(sofa__slug=slug):
-        fbx = fbx[0]
+        for item in fbx:
+            fbx = item
     else:
         fbx = None
     return render(request, 'shop_product_detail.html', context={'sofa': sofa,
