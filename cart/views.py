@@ -25,7 +25,7 @@ def get_random3(DBmodel, slug):
 
 
 def three_d_model(request, slug):
-    model = Cart3dModels.objects.get(sofa__slug=slug)
+    model = Cart3dModels.objects.filter(sofa__slug=slug)
     return render(request, '3d_model.html', context={'file': model, 'slug': slug})
 
 
@@ -60,7 +60,10 @@ def model_view(request, slug):
     sofa = SofaModel.objects.get(slug=slug)
     img = CartImages.objects.filter(sofa=sofa)
     more_sofa = get_random3(SofaModel, slug)
-    fbx = Cart3dModels.objects.get(sofa__slug=slug)
+    if fbx := Cart3dModels.objects.filter(sofa__slug=slug):
+        fbx = fbx[0]
+    else:
+        fbx = None
     return render(request, 'shop_product_detail.html', context={'sofa': sofa,
                                                                 'img': img,
                                                                 'more_sofa': more_sofa,
