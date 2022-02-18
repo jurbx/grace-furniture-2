@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input href="{% url 'model_view' slug %}" type="submit" value="Обновить" class="btn btn-lg btn-block btn-primary" style="position: absolute">
+</body>
+</html>
+
+<style>
+  body {
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  canvas {
+    outline: none;
+  }
+</style>
+<script type="module">
+  import * as THREE from "https://unpkg.com/three@0.120.1/build/three.module.js"
+  import { OrbitControls } from "https://unpkg.com/three@0.120.1/examples/jsm/controls/OrbitControls.js"
+  import { FBXLoader } from "https://unpkg.com/three@0.120.1/examples/jsm/loaders/FBXLoader.js"
+
+  const
+    scene = new THREE.Scene(),
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 5000),
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+
+  camera.position.set(0, 0, 200)
+
+  renderer.setSize(document.body.offsetWidth, document.body.offsetHeight)
+  renderer.shadowMap.enabled = true
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap
+  document.body.appendChild(renderer.domElement)
+
+  const controls = new OrbitControls(camera, renderer.domElement)
+  controls.autoRotate = true
+  controls.maxPolarAngle = Math.PI / 2
+  controls.minPolarAngle = Math.PI / 2
+  controls.minDistance = 100
+  controls.maxDistance = 200
+
+  const ambientLight = new THREE.AmbientLight(0xffffff)
+  scene.add(ambientLight)
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff)
+  directionalLight.position.set(100, 300, 500)
+  directionalLight.castShadow = true
+  directionalLight.shadow.camera.near = 1
+  directionalLight.shadow.camera.far = 5000
+
+  const side = 100
+  directionalLight.shadow.camera.top = side
+  directionalLight.shadow.camera.right = side
+  directionalLight.shadow.camera.bottom = -side
+  directionalLight.shadow.camera.left = -side
+  scene.add(directionalLight)
+
+  const baseUrl = "./public/3D models"
+  new FBXLoader().load(`{{ file.fbx_file.url }}`, obj => {
+    obj.scale.set(.05, .05, .05)
+    obj.rotation.x = -90 * Math.PI / 180
+    obj.position.y = -30
+
+    obj.children.forEach(mesh => {
+      if (mesh.type === "Mesh") {
+        mesh.castShadow = true
+        mesh.receiveShadow = false
+        // mesh.material.specular = new THREE.Color()
+        // mesh.material.color = new THREE.Color()
+        // mesh.material.emissive = new THREE.Color()
+      }
+    })
+    scene.add(obj)
+    animate()
+  })
+
+  function animate() {
+    renderer.render(scene, camera)
+    requestAnimationFrame(animate)
+    // controls.update()
+  }
+</script>
