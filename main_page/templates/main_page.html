@@ -152,56 +152,57 @@
     <!-- Blog End -->
 
 
-    <!-- Contact Start -->
-    <div class="section">
+    {% if contact %}
+    <div class="section section-padding mt-n6">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 class="title" href="{% url 'contact_view' %}">Контакти</h2>
-            </div>
-
-            <div class="features-section section-padding mt-n6">
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- Single Features Item Start -->
-                        <div class="single-features-item mt-6">
-                            <div class="icon-info">
-                                <i class="fas fa-map-marker-alt"></i>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- Single Contact Info Start -->
+                            <div class="single-contact-info">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h5 class="title">Адреса</h5>
+                                    <p>{{ contact.address|linebreaks }}</p>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h3 class="title">{{ contact.address|linebreaks }}</h3>
-                            </div>
+                            <!-- Single Contact Info End -->
                         </div>
-                        <!-- Single Features Item End -->
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Single Features Item Start -->
-                        <div class="single-features-item mt-6">
-                            <div class="icon-info">
-                                <i class="fas fa-phone"></i>
+                        <div class="col-md-4">
+                            <!-- Single Contact Info Start -->
+                            <div class="single-contact-info">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h5 class="title">Телефон</h5>
+                                    <p>{{ contact.phone|linebreaks }}</p>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h3 class="title">{{ contact.phone|linebreaks }}</h3>
-                            </div>
+                            <!-- Single Contact Info End -->
                         </div>
-                        <!-- Single Features Item End -->
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Single Features Item Start -->
-                        <div class="single-features-item mt-6">
-                            <div class="icon-info">
-                                <i class="far fa-globe"></i>
+                        <div class="col-md-4">
+                            <!-- Single Contact Info Start -->
+                            <div class="single-contact-info">
+                                <div class="info-icon">
+                                    <i class="far fa-globe"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h5 class="title">Email</h5>
+                                    <p>{{ contact.email }}</p>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h3 class="title">{{ contact.email|linebreaks }}</h3>
-                            </div>
+                            <!-- Single Contact Info End -->
                         </div>
-                        <!-- Single Features Item End -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Contact End -->
+    {% endif %}
 
 
     <!-- About Start -->
