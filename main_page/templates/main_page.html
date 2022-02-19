@@ -1,7 +1,9 @@
-   {% extends 'index-2.html' %}
-   {% load static %}
+{% extends 'index-2.html' %}
+{% load static %}
 {% load mathfilters %}
-   {% block content %}
+
+
+{% block content %}
 <!-- Header Start -->
 
  <!-- Slider Start -->
@@ -32,73 +34,6 @@
         </div>
     </div>
     <!-- Slider End -->
-
-    <!-- Banner Start -->
-    <div class="section section-padding-02">
-        <div class="container">
-            <div class="nav justify-content-center">
-{#                    <li class="nav-item"><a class="active" data-bs-toggle="tab" href="#tab1"></a></li>#}
-                    <h3><a class="nav-item"><font color="black"> Вітрини</font></a></h3>
-{#                    <li class="nav-item"><a data-bs-toggle="tab" href="#tab3"></a></li>#}
-                </div>
-            <!-- Banner Wrapper Start -->
-            <div class="banner-wrapper mt-n6">
-                <div class="row">
-                    <div class="col-md-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="{% static 'assets/images/banner/banner-09.jpg' %}" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- Banner Box Start -->
-                                <div class="banner-box">
-                                    <a href="shop-grid-left-sidebar.html">
-                                        <img src="{% static 'assets/images/banner/banner-10.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <!-- Banner Box End -->
-                            </div>
-                            <div class="col-sm-6">
-                                <!-- Banner Box Start -->
-                                <div class="banner-box">
-                                    <a href="shop-grid-left-sidebar.html">
-                                        <img src="{% static 'assets/images/banner/banner-11.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <!-- Banner Box End -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="{% static 'assets/images/banner/banner-12.jpg' %}" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="{% static 'assets/images/banner/banner-13.jpg' %}" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Banner Wrapper End -->
-        </div>
-    </div>
-    <!-- Banner End -->
 
     <!-- Best Seller Start -->
     <div class="section section-padding-02 mt-n3">
@@ -170,7 +105,6 @@
             </div>
             <!-- Product Tabs End -->
         </div>
-    </div>
     <!-- Best Seller End -->
        <!-- Blog Start -->
     <div class="section section-padding mt-n2">
@@ -185,76 +119,27 @@
             <div class="blog-wraper blog-active">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
+                    {% if shopwindow %}
+                        {% for item in shopwindow %}
                         <div class="swiper-slide">
                             <!-- Single Blog Item Start -->
                             <div class="single-blog-item">
                                 <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="{% static 'assets/images/blog/blog-01.jpg' %}" alt="">
+                                    <a href="{% url 'model_view' item.sofa.slug %}">
+                                        <img src="{{ item.img.url }}" alt="">
                                     </a>
                                 </div>
                                 <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">This is Secound Post For XipBlog</a></h4>
+                                    <h4 class="post-title"><a href="{% url 'model_view' item.sofa.slug %}">{{ item.sofa.title }}</a></h4>
                                     <div class="blog-meta">
-                                        <p class="meta-author">Posted by <a href="#">HasThemes</a></p>
-                                        <p class="meta-date">Aug 26TH, 2020</p>
-                                    </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when ...</p>
-                                </div>
-                            </div>
-                            <!-- Single Blog Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Single Blog Item Start -->
-                            <div class="single-blog-item">
-                                <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="{% static 'assets/images/blog/blog-02.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">This is Big sale this summer</a></h4>
-                                    <div class="blog-meta">
-                                        <p class="meta-author">Posted by <a href="#">HasThemes</a></p>
-                                        <p class="meta-date">Aug 26TH, 2020</p>
-                                    </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when ...</p>
-                                </div>
-                            </div>
-                            <!-- Single Blog Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Single Blog Item Start -->
-                            <div class="single-blog-item">
-                                <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="{% static 'assets/images/blog/blog-03.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">Nicholas K Spring 2020 Runway</a></h4>
-                                    <div class="blog-meta">
-                                        <p class="meta-author">Posted by <a href="#">HasThemes</a></p>
-                                        <p class="meta-date">Aug 26TH, 2020</p>
+                                        <p class="meta-author">Категорія: <a href="{% url 'cart_view' %}?category={{ item.sofa.category }}">{{ item.sofa.category }}</a></p>
                                     </div>
                                 </div>
                             </div>
                             <!-- Single Blog Item End -->
                         </div>
-                        <div class="swiper-slide">
-                            <!-- Single Blog Item Start -->
-                            <div class="single-blog-item">
-                                <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="{% static 'assets/images/blog/blog-04.jpg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">Bruno</a></h4>
-                            </div>
-                            <!-- Single Blog Item End -->
-                        </div>
-                    </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <!-- Add Arrows -->
                 <div class="swiper-button-next"></div>
@@ -263,99 +148,11 @@
             <!-- Blog Wrapper End -->
         </div>
     </div>
+    </div>
     <!-- Blog End -->
 
 
-    <!-- Banner Start -->
-    <div class="section mt-n9">
-        <div class="container-fluid custom-container">
-            <!-- Banner Wrapper Start -->
-            <div class="banner-wrapper section-margin">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/images/banner/banner-04.jpg" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- Banner Box Start -->
-                        <div class="banner-box">
-                            <a href="shop-grid-left-sidebar.html">
-                                <img src="assets/images/banner/banner-05.jpg" alt="">
-                            </a>
-                        </div>
-                        <!-- Banner Box End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Banner Wrapper End -->
-        </div>
-    </div>
-    <!-- Banner End -->
-
-    <!-- Testimonial Start -->
-    <div class="section bg-cover section-padding" style="background-image: url({% static 'assets/images/testimonial-bg.jpg' %});">
-        <div class="container">
-            <div class="testimonial-active">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <!-- Single Testimonial Start -->
-                            <div class="single-testimonial text-center">
-                                <div class="testimonial-avater">
-                                    <img src="assets/images/avater/avater-01.png" alt="">
-                                </div>
-                                <div class="testimonial-content">
-                                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                    <h4 class="name">orando BLoom</h4>
-                                    <span class="designation">demo@posthemes.com</span>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Single Testimonial Start -->
-                            <div class="single-testimonial text-center">
-                                <div class="testimonial-avater">
-                                    <img src="assets/images/avater/avater-02.png" alt="">
-                                </div>
-                                <div class="testimonial-content">
-                                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                    <h4 class="name">orando BLoom</h4>
-                                    <span class="designation">demo@posthemes.com</span>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Single Testimonial Start -->
-                            <div class="single-testimonial text-center">
-                                <div class="testimonial-avater">
-                                    <img src="assets/images/avater/avater-01.png" alt="">
-                                </div>
-                                <div class="testimonial-content">
-                                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
-                                    <h4 class="name">orando BLoom</h4>
-                                    <span class="designation">demo@posthemes.com</span>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
-    <!-- Features Start -->
+    <!-- Contact Start -->
     <div class="section">
         <div class="container">
             <div class="features-section section-padding mt-n6">
@@ -364,11 +161,10 @@
                         <!-- Single Features Item Start -->
                         <div class="single-features-item mt-6">
                             <div class="feature-icon">
-                                <img src="assets/images/icon/icon1.png" alt="">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="feature-content">
-                                <h3 class="title">Free Shipping Worldwide</h3>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum</p>
+                                <h3 class="title">{{ contact.address|linebreaks }}</h3>
                             </div>
                         </div>
                         <!-- Single Features Item End -->
@@ -377,11 +173,10 @@
                         <!-- Single Features Item Start -->
                         <div class="single-features-item mt-6">
                             <div class="feature-icon">
-                                <img src="assets/images/icon/icon2.png" alt="">
+                                <i class="fas fa-phone"></i>
                             </div>
                             <div class="feature-content">
-                                <h3 class="title">Money Back Guarantee</h3>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum</p>
+                                <h3 class="title">{{ contact.phone|linebreaks }}</h3>
                             </div>
                         </div>
                         <!-- Single Features Item End -->
@@ -390,11 +185,10 @@
                         <!-- Single Features Item Start -->
                         <div class="single-features-item mt-6">
                             <div class="feature-icon">
-                                <img src="assets/images/icon/icon3.png" alt="">
+                                <i class="far fa-globe"></i>
                             </div>
                             <div class="feature-content">
-                                <h3 class="title">online support 24/7</h3>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum</p>
+                                <h3 class="title">{{ contact.email|linebreaks }}</h3>
                             </div>
                         </div>
                         <!-- Single Features Item End -->
@@ -403,5 +197,31 @@
             </div>
         </div>
     </div>
-    <!-- Features End -->
-   {% endblock %}
+    <!-- Contact End -->
+
+
+    <!-- About Start -->
+       {% if about %}
+    <div class="section section-padding-02">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-4">
+                    <div class="about-image">
+                        <img src="{{ about.img.url }}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="about-text">
+                        <div class="about-text-wrapper">
+                            <h4 class="title">{{ about.title }}</h4>
+                            <p>{{ about.desc|linebreaks }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       {% endif %}
+    <!-- About End -->
+
+{% endblock %}

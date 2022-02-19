@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.utils.text import slugify
 
-from .models import SofaModel, CartImages, SofaModels, SofaTypes, SofaColor, Cart3dModels
+from .models import SofaModel, CartImages, SofaModels, SofaTypes, Cart3dModels
 import random
 from .forms import SofaCreateForm, SofaEditForm, ImageForm, FbxForm
 from django.views import generic
