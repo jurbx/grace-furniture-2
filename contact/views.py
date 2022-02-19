@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Contact, OurShops
+from .models import Contact, OurShops, TitleOurShop
 
 
 def contact_view(request):
@@ -7,4 +7,6 @@ def contact_view(request):
         contact = contact[0]
 
     shop = OurShops.objects.all()
-    return render(request, 'contact.html', context={'contact': contact, 'shop': shop})
+    if title := TitleOurShop.objects.all():
+        title = title[0]
+    return render(request, 'contact.html', context={'contact': contact, 'shop': shop, 'title': title})
