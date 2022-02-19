@@ -35,8 +35,8 @@ class SofaModel(models.Model):
     sofa_type = models.ForeignKey(SofaTypes, on_delete=models.CASCADE, verbose_name='Тип')
 
     class Meta:
-        verbose_name_plural = 'Диван'
-        verbose_name = 'Дивани'
+        verbose_name_plural = 'Дивани'
+        verbose_name = 'Диван'
 
     def __str__(self):
         return self.title
@@ -55,8 +55,8 @@ class CartImages(models.Model):
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name_plural = 'Картинку'
-        verbose_name = 'Картинки'
+        verbose_name_plural = 'Фотографії'
+        verbose_name = 'Фотографію'
 
 
 class Cart3dModels(models.Model):

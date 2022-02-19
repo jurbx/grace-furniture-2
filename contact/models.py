@@ -16,5 +16,5 @@ class OurShops(models.Model):
     info = models.TextField(max_length=1000, verbose_name='Інформація про постачальників')
 
     class Meta:
-        verbose_name_plural = 'Наш магазин'
-        verbose_name = 'Наші магазини'
+        verbose_name_plural = 'Наші магазини'
+        verbose_name = 'Наш магазин'
