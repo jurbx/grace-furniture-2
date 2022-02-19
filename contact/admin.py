@@ -8,6 +8,7 @@ class OurShopsInline(admin.StackedInline):
 
 
 admin.site.register(Contact)
+admin.site.register(OurShops)
 
 
 @admin.register(TitleOurShop)
