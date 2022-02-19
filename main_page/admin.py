@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HeroSection, ShopWindow
+from .models import HeroSection, ShopWindow, AboutUs
 
 
 # class ThingInfoInline(admin.StackedInline):
@@ -12,6 +12,7 @@ from .models import HeroSection, ShopWindow
 #
 admin.site.register(HeroSection)
 admin.site.register(ShopWindow)
+admin.site.register(AboutUs)
 #
 #
 # admin.site.register(Services)

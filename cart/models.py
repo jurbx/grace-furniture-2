@@ -7,7 +7,7 @@ class SofaModels(models.Model):
     img = models.ImageField(upload_to='cart/img/model_img', verbose_name='Картинка моделі')
 
     class Meta:
-        verbose_name_plural = 'Моделі диванів'
+        verbose_name_plural = 'Модель дивану'
         verbose_name = 'Моделі диванів'
 
     def __str__(self):
@@ -21,7 +21,7 @@ class SofaTypes(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Типи виробів'
+        verbose_name_plural = 'Тип виробу'
         verbose_name = 'Типи виробів'
 
 
@@ -35,7 +35,7 @@ class SofaModel(models.Model):
     sofa_type = models.ForeignKey(SofaTypes, on_delete=models.CASCADE, verbose_name='Тип')
 
     class Meta:
-        verbose_name_plural = 'Дивани'
+        verbose_name_plural = 'Диван'
         verbose_name = 'Дивани'
 
     def __str__(self):
@@ -53,6 +53,10 @@ class SofaModel(models.Model):
 class CartImages(models.Model):
     img = models.ImageField(upload_to='cart/img', verbose_name='Додаткові фотографіі')
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'Картинку'
+        verbose_name = 'Картинки'
 
 
 class Cart3dModels(models.Model):

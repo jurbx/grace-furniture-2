@@ -10,7 +10,7 @@ class HeroSection(models.Model):
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE, verbose_name='Диван до якого відноситься картинка')
 
     class Meta:
-        verbose_name_plural = 'Головні картинки'
+        verbose_name_plural = 'Головну картинку'
         verbose_name = 'Головні картинки'
 
     def __str__(self):
