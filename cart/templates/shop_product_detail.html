@@ -43,7 +43,9 @@
                                     {% for item in img %}
                                 <div class="swiper-slide">
                                     <div class="single-img">
-                                        <img href="javascript:void(0)" src="{{ item.img.url }}" alt="Product Image">
+                                        <a href="javascript:void(0)">
+                                            <img src="{{ item.img.url }}" alt="Product Image">
+                                        </a>
                                         <div class="inner-stuff">
                                             <div class="gallery-item" data-bs-src="{{ item.img.url }}">
                                                 <a href="javascript:void(0)">
