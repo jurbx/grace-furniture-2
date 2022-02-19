@@ -65,28 +65,12 @@
                                                     <img src="{{ item.img.url }}" alt="">
                                                     <img class="image-hover" src="{{ item.img.url }}" alt="">
                                                 </a>
-{#                                                <div class="product-label">#}
-{#                                                    <span class="new">{{ forloop.counter }}</span>#}
-{#                                                </div>#}
-{#                                                <div class="product-action">#}
-{#                                                    <a class="action-btn add-cart" href="#"><i class="icon-shopping-bag2"></i></a>#}
-{#                                                    <a class="action-btn wishlist " href="#"><i class="icon-heart"></i></a>#}
-{#                                                    <a class="action-btn compare" href="#"><i class="icon-sliders"></i></a>#}
-{#                                                    <a class="action-btn quick-view" href="#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>#}
-{#                                                </div>#}
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-features-reviews">
-{#                                                    <a href="#" class="features">Studio Design</a>#}
-
-{#                                                    <div class="review-star">#}
-{#                                                        <div class="star" style="width: 80%;"></div>#}
-{#                                                    </div>#}
                                                 </div>
-                                                <h4 class="product-name"><a href="shop-single.html">{{ item.name }}</a></h4>
-{#                                                <div class="product-price">#}
-{#                                                    <span class="sale-price">$19.12</span>#}
-{#                                                </div>#}
+                                                <h4 class="product-name"><a href="{% url 'cart_view' %}?category={{ item.name }}">{{ item.name }}</a></h4>
+{#
                                             </div>
                                         </div>
                                         <!-- Product Item End -->
@@ -155,7 +139,7 @@
 
 
     {% if contact %}
-    <div class="section section-padding mt-n2">
+    <div class="section section-padding mt-n2" style="padding-bottom: 2em">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
