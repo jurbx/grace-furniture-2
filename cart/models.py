@@ -7,8 +7,8 @@ class SofaModels(models.Model):
     img = models.ImageField(upload_to='cart/img/model_img', verbose_name='Картинка моделі')
 
     class Meta:
-        verbose_name_plural = 'Модель дивану'
-        verbose_name = 'Моделі диванів'
+        verbose_name_plural = 'Моделі диванів'
+        verbose_name = 'Модель дивану'
 
     def __str__(self):
         return self.name
@@ -21,8 +21,8 @@ class SofaTypes(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Тип виробу'
-        verbose_name = 'Типи виробів'
+        verbose_name_plural = 'Типи виробів'
+        verbose_name = 'Тип виробу'
 
 
 class SofaModel(models.Model):
