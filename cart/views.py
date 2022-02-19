@@ -36,24 +36,19 @@ def cart_view(request):
         sofas = SofaModel.objects.filter(category__name__in=cur_category)
     if cur_type := request.GET.getlist('type'):
         sofas = sofas.filter(sofa_type__name__in=cur_type)
-    if cur_color := request.GET.getlist('color'):
-        sofas = sofas.filter(sofa_color__name__in=cur_color)
 
     queryset = sofas
 
-    if not cur_category and not cur_color and not cur_type:
+    if not cur_category and not cur_type:
         queryset = SofaModel.objects.all()
 
     categories = SofaModels.objects.all()
     types = SofaTypes.objects.all()
-    colors = SofaColor.objects.all()
     return render(request, 'cart_detail_2.html', context={'sofas': queryset,
-                                                        'categories': categories,
-                                                        'cur_category': cur_category,
-                                                        'cur_color': cur_color,
-                                                        'cur_type': cur_type,
-                                                        'types': types,
-                                                        'colors': colors})
+                                                          'categories': categories,
+                                                          'cur_category': cur_category,
+                                                          'cur_type': cur_type,
+                                                          'types': types})
 
 
 def model_view(request, slug):
