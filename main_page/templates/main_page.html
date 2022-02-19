@@ -43,9 +43,7 @@
             <!-- Product Tabs Start -->
             <div class="product-tabs">
                 <div class="nav justify-content-center">
-{#                    <li class="nav-item"><a class="active" data-bs-toggle="tab" href="#tab1"></a></li>#}
                     <h2 class="title" href="{% url 'cart_view' %}"><font color="black">Каталог</font></h2>
-{#                    <li class="nav-item"><a data-bs-toggle="tab" href="#tab3"></a></li>#}
                 </div>
 
                 <div class="tab-content" id="myTabContent">
@@ -140,6 +138,9 @@
     {% if contact %}
     <div class="section section-padding mt-n2">
         <div class="container">
+            <div class="nav justify-content-center">
+                    <h2 class="title" href="{% url 'contact_view' %}"><font color="black">Контакти</font></h2>
+                </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="row">
