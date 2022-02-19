@@ -48,10 +48,10 @@ INSTALLED_APPS = [
     'storages',
     "corsheaders",
     'mathfilters',
-    'main_page.apps.MainPageConfig',
-    'cart.apps.CartConfig',
-    'shopwindow.apps.ShopwindowConfig',
-    'contact.apps.ContactConfig'
+    'main_page',
+    'cart',
+    'shopwindow',
+    'contact'
 ]
 
 MIDDLEWARE = [
