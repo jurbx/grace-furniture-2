@@ -90,7 +90,7 @@
                     <!-- Shop Single Start -->
                     <div class="shop-single-content">
                         <h3 class="product-name">{{ sofa.title }}</h3>
-                        <p class="reference" href="{% url 'cart_view' %}?category={{ sofa.category }}">{{ sofa.category }}</p>
+                        <a class="reference" href="{% url 'cart_view' %}?category={{ sofa.category }}">{{ sofa.category }}</a>
                         <div class="product-description">
                             <ul>
                                 <li>{{ sofa.desc|linebreaks }}</li>
@@ -145,8 +145,7 @@
         <div class="container">
             <!-- Section Title Start -->
             <div class="section-title text-center">
-                <h2 class="title">Related Products</h2>
-                <p>Consequat magna, massa vel suspendisse morbi aliquam faucibus <br> ligula ante ipsum ac nulla.</p>
+                <h2 class="title">Інші товари</h2>
             </div>
             <!-- Section Title End -->
 
@@ -173,7 +172,7 @@
                                 </div>
                                 <div class="product-desc">
                                     <div class="product-features-reviews">
-                                        <a href="#" class="features">{{ item.category }}</a>
+                                        <a href="{% url 'cart_view' %}?category={{ item.category }}" class="features">{{ item.category }}</a>
 
                                     </div>
                                     <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{{ item.title }}</a></h4>
