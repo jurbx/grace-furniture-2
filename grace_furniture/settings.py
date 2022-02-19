@@ -170,4 +170,6 @@ AWS_SECRET_ACCESS_KEY = 'i1Yxiy23H9VuSioU8WUMJiBfrXCEd0Em6NKw7GUq'
 # AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
 AWS_STORAGE_BUCKET_NAME = 'grace-furniture'
 
+S3_URL = 'https://grace-furniture.s3-accelerate.amazonaws.com'
+
 AWS_QUERYSTRING_AUTH = False
