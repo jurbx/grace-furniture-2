@@ -4,7 +4,7 @@ from cart.models import SofaModel
 
 
 class HeroSection(models.Model):
-    title = models.CharField(max_length=100, verbose_name='Головні картинки')
+    title = models.CharField(max_length=100, verbose_name='Заголовок до картинки')
     context = models.TextField(max_length=500, blank=True, verbose_name='Текст до картинки')
     img = models.ImageField(upload_to='section/img', verbose_name='Фотографія')
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE, verbose_name='Диван до якого відноситься картинка')

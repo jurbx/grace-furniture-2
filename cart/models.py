@@ -29,6 +29,7 @@ class SofaModel(models.Model):
     title = models.CharField(max_length=100, verbose_name='Назва дивану')
     desc = models.TextField(max_length=1000, verbose_name='Короткий опис товару')
     detail = models.TextField(max_length=2000, verbose_name='Детальний опис')
+    characteristic = models.TextField(max_length=2000, verbose_name='Характеристики товару')
     main_image = models.ImageField(upload_to='cart/img/main_img', blank=True, null=True, verbose_name='Головна картинка')
     slug = models.SlugField(max_length=100, db_index=True, unique=True, null=True, blank=True)
     category = models.ForeignKey(SofaModels, on_delete=models.CASCADE, verbose_name='Категорія')
