@@ -90,118 +90,9 @@
                         <!-- Header Action Start -->
                         <div class="header-actions">
                             <div class="dropdown">
-                                <a href="#" class="header-action-btn" role="button" data-bs-toggle="dropdown">
-                                    <i class="icon-search"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-search dropdown-menu-right">
-                                    <!-- Header Search Start -->
-                                    <div class="header-search">
-                                        <form action="#">
-                                            <input type="text" placeholder="Search our catalog">
-                                            <button><i class="icon-search"></i></button>
-                                        </form>
-                                    </div>
-                                    <!-- Header Search End -->
-                                </div>
-                            </div>
-                            <a href="compare.html" class="header-action-btn">
-                                <i class="icon-sliders"></i>
-                                <span class="action-num">3</span>
-                            </a>
-                            <a href="wishlist.html" class="header-action-btn">
-                                <i class="icon-heart"></i>
-                                <span class="action-num">2</span>
-                            </a>
-                            <div class="dropdown">
-                                <a href="#" class="header-action-btn" role="button" data-bs-toggle="dropdown">
+                                <a href="{% url 'cart_view' %}" class="header-action-btn" role="button" data-bs-toggle="dropdown">
                                     <i class="icon-shopping-bag2"></i>
-                                    <span class="action-num">3</span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-cart">
-                                    <div class="cart-content">
-                                        <ul class="cart-items">
-                                            <li>
-                                                <!-- Single Cart Item Start -->
-                                                <div class="single-cart-item">
-                                                    <div class="cart-thumb">
-                                                        <a href="#"><img src="{% static 'assets/images/mini-cart/cart-1.jpg' %}" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-item-content">
-                                                        <h6 class="product-name">Originals Kaval Windbreaker Winter Jacket</h6>
-                                                        <span class="product-price">$19.12</span>
-                                                        <div class="attributes-content">
-                                                            <span><strong>Size:</strong> S </span>
-                                                            <span><strong>Color:</strong> White </span>
-                                                        </div>
-                                                        <a href="#" class="remove-cart"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Cart Item End -->
-                                            </li>
-                                            <li>
-                                                <!-- Single Cart Item Start -->
-                                                <div class="single-cart-item">
-                                                    <div class="cart-thumb">
-                                                        <a href="#"><img src="{% static 'assets/images/mini-cart/cart-2.jpg' %}" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-item-content">
-                                                        <h6 class="product-name">Fila Locker Room Varsity Jacket Comfortable</h6>
-                                                        <span class="product-price">$19.12</span>
-                                                        <div class="attributes-content">
-                                                            <span><strong>Size:</strong> S </span>
-                                                            <span><strong>Color:</strong> White </span>
-                                                        </div>
-                                                        <a href="#" class="remove-cart"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Cart Item End -->
-                                            </li>
-                                            <li>
-                                                <!-- Single Cart Item Start -->
-                                                <div class="single-cart-item">
-                                                    <div class="cart-thumb">
-                                                        <a href="#"><img src="{% static 'assets/images/mini-cart/cart-1.jpg' %}" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-item-content">
-                                                        <h6 class="product-name">New Balance Fresh Foam LAZR v1 Sport Sport Running</h6>
-                                                        <span class="product-price">$19.12</span>
-                                                        <div class="attributes-content">
-                                                            <span><strong>Size:</strong> S </span>
-                                                            <span><strong>Color:</strong> White </span>
-                                                        </div>
-                                                        <a href="#" class="remove-cart"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Cart Item End -->
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="cart-price">
-                                        <div class="cart-subtotals">
-                                            <div class="price-inline">
-                                                <span class="label">Subtotal</span>
-                                                <span class="value">$103.72</span>
-                                            </div>
-                                            <div class="price-inline">
-                                                <span class="label">Shipping</span>
-                                                <span class="value">$7.00</span>
-                                            </div>
-                                            <div class="price-inline">
-                                                <span class="label">Taxes</span>
-                                                <span class="value">$0.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="cart-total">
-                                            <div class="price-inline">
-                                                <span class="label">Total</span>
-                                                <span class="value">$110.72</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="checkout-btn">
-                                        <a href="checkout.html" class="btn btn-hover-primary d-block">Checkout</a>
-                                    </div>
-                                </div>
                             </div>
                             <div class="dropdown">
                                 <a href="#" class="header-action-btn" role="button" data-bs-toggle="dropdown">
@@ -218,28 +109,6 @@
                                         </ul>
                                     </div>
                                     <!-- Dropdown Language End -->
-
-                                    <!-- Dropdown Currency End -->
-                                    <div class="dropdown-currency">
-                                        <span class="selected">USD $</span>
-                                        <ul class="currency-list">
-                                            <li><a href="#">USD $</a></li>
-                                            <li><a href="#">Euro €</a></li>
-                                            <li><a href="#">Euro €</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Dropdown Currency End -->
-
-                                    <!-- Dropdown Currency End -->
-                                    <div class="dropdown-currency">
-                                        <span class="selected">My account</span>
-                                        <ul class="currency-list">
-                                            <li><a href="my-account.html">My account</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="login.html">Sign in</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Dropdown Currency End -->
                                 </div>
                             </div>
                         </div>

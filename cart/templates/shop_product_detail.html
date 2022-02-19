@@ -55,9 +55,6 @@
                                     {% endfor %}
                                 {% endif %}
                             </div>
-                            <div class="product-label">
-                                <span class="new">New</span>
-                            </div>
                             <a href="#gallery-1" class="btn-gallery"><i class="far fa-expand"></i></a>
                         </div>
                         <div class="vertical-slider-nav swiper-container">
@@ -97,7 +94,7 @@
                             </ul>
                         </div>
                         <div class="product-cart">
-                            <a href="#" class="btn btn-dark btn-hover-primary">Buy Now</a>
+                            <a href="{% url 'contact_view' %}" class="btn btn-dark btn-hover-primary">Перейти в Контакти</a>
                             {% if fbx %}
                             <a href="{% url 'three_d_model' sofa.slug %}" class="btn btn-dark btn-hover-primary">View 3d</a>
                             {% endif %}
