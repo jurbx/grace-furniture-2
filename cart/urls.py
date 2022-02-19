@@ -8,5 +8,5 @@ urlpatterns = [
     path('detail/<slug:slug>/', model_view, name='model_view'),
     path('create/', CreateModelView.as_view(), name='model_create'),
     path('edit/<slug:slug>/', login_required(EditModelView.as_view()), name='model_edit'),
-    path('detail/<slug:slug>/3d/', three_d_model, name='three_d_model')
+    path('3d/detail/<slug:slug>/', three_d_model, name='three_d_model')
 ]
