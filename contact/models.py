@@ -13,7 +13,7 @@ class Contact(models.Model):
 
 class TitleOurShop(models.Model):
     title = models.CharField(max_length=200)
-    desc = models.TextField(max_length=500)\
+    desc = models.TextField(max_length=500, blank=True)
 
 
     class Meta:
