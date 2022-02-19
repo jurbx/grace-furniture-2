@@ -42,6 +42,7 @@
                                 {% if img %}
                                     {% for item in img %}
                                 <div class="swiper-slide">
+                                    <div class="single-img">
                                         <img src="{{ item.img.url }}" alt="Product Image">
                                         <div class="inner-stuff">
                                             <div class="gallery-item" data-bs-src="{{ item.img.url }}">
@@ -49,6 +50,7 @@
                                                     <i class="lastudioicon-full-screen"></i>
                                                 </a>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
                                     {% endfor %}
