@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-
+from datetime import datetime
 
 class SofaModels(models.Model):
     name = models.CharField(max_length=100, db_index=True, unique=True, verbose_name='Назва моделі')
@@ -46,8 +46,11 @@ class SofaModel(models.Model):
 
     def save(self, *args, **kwargs):
         slug = slugify(self.title)
-        if SofaModel.objects.filter(slug=slug).exists():
-            self.slug = f'{slug}{self.id}'
+        if id := SofaModel.objects.filter(slug=datetime.now()):
+            if id.exists():
+                time = datetime.now()
+                time = time.strftime('%H%S')
+                self.slug = f'{slug}{time}'
         else:
             self.slug = slug
         super().save(*args, **kwargs)
