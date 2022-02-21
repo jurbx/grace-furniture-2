@@ -1,0 +1,188 @@
+{% extends 'index-2.html' %}
+
+{% block title %}
+    <title>Вітрини</title>
+{% endblock %}
+
+{% block content %}
+    <div class="page-banner-section section">
+        <div class="container">
+            <!-- Pager Banner Start -->
+            <div class="page-banner-content text-center">
+                <h2 class="page-banner-title">Вітрини</h2>
+                <ul class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'index' %}">Головна</a></li>
+                    <li class="breadcrumb-item active">Вітрини</li>
+                </ul>
+            </div>
+            <!-- Pager Banner End -->
+        </div>
+</div>
+
+ <!-- Slider Start -->
+    <div class="section">
+        <div class="swiper-container slider-active">
+            <div class="swiper-wrapper">
+            {% if main_img %}
+                {% for item in main_img %}
+                <!-- Single Slider Start -->
+                <div class="single-slider swiper-slide animation-style-01" style="background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url({{ item.img.url }});">
+                    <div class="container">
+                        <!-- Slider Content Start -->
+                        <div class="slider-content">
+                            <h2 class="main-title">{{ item.sofa.title }}</h2>
+                            <a href="{% url 'model_view' item.sofa.slug %}" class="btn btn-primary btn-hover-dark">Детальніше</a>
+                        </div>
+                        <!-- Slider Content End -->
+                    </div>
+                </div>
+                <!-- Single Slider End -->
+                {% endfor %}
+            {% endif %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination d-none"></div>
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <!-- Slider End -->
+
+    <!-- Banner Start -->
+    <div class="section">
+        <div class="container">
+            <!-- Banner Wrapper Start -->
+            <div class="banner-wrapper banner-wrapper-02">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                        {% if img_under_main_image %}
+                            {% for item in img_under_main_image %}
+                            <div class="col-sm-4">
+                                <!-- Banner Box Start -->
+                                <div class="banner-box">
+                                    <a href="{% url 'model_view' item.sofa.slug %}">
+                                        <img src="{{ item.img.url }}" alt="">
+                                    </a>
+                                </div>
+                                <!-- Banner Box End -->
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Wrapper End -->
+        </div>
+    </div>
+    <!-- Banner End -->
+
+
+    <!-- Blog Start -->
+    <div class="section section-padding mt-n2">
+        <div class="container">
+            <!-- Blog Wrapper Start -->
+            <div class="blog-wraper blog-active">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    {% if upper_slider %}
+                        {% for item in upper_slider %}
+                        <div class="swiper-slide">
+                            <!-- Single Blog Item Start -->
+                            <div class="single-blog-item">
+                                <div class="blog-image">
+                                    <a href="{% url 'model_view' item.sofa.slug %}">
+                                        <img src="{{ item.img.url }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="blog-content">
+                                    <h4 class="post-title"><a href="{% url 'model_view' item.sofa.slug %}">{{ item.sofa.title }}</a></h4>
+                                    <div class="blog-meta">
+                                        <p class="meta-author">Категорія: <a href="{% url 'cart_view' %}?category={{ item.sofa.category }}">{{ item.sofa.category }}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Blog Item End -->
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <!-- Blog Wrapper End -->
+        </div>
+    </div>
+    </div>
+    <!-- Blog End -->
+
+
+    <!-- Banner Start -->
+        <div class="section">
+            <div class="container-fluid custom-container">
+                <!-- Banner Wrapper Start -->
+                <div class="banner-wrapper ml-xl-n6 mr-xl-n6">
+                    <div class="row">
+                        {% if images %}
+                            {% for item in images %}
+                                <div class="col-md-4">
+                                <!-- Banner Box Start -->
+                                <div class="banner-box">
+                                    <a href="{% url 'model_view' item.sofa.slug %}">
+                                        <img src="{{ item.img.url }}" alt="">
+                                    </a>
+                                </div>
+                                <!-- Banner Box End -->
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- Banner Wrapper End -->
+            </div>
+        </div>
+        <!-- Banner End -->
+
+    <!-- Blog Start -->
+    <div class="section section-padding mt-n2">
+        <div class="container">
+            <!-- Blog Wrapper Start -->
+            <div class="blog-wraper blog-active">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    {% if lower_slider %}
+                        {% for item in lower_slider %}
+                        <div class="swiper-slide">
+                            <!-- Single Blog Item Start -->
+                            <div class="single-blog-item">
+                                <div class="blog-image">
+                                    <a href="{% url 'model_view' item.sofa.slug %}">
+                                        <img src="{{ item.img.url }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="blog-content">
+                                    <h4 class="post-title"><a href="{% url 'model_view' item.sofa.slug %}">{{ item.sofa.title }}</a></h4>
+                                    <div class="blog-meta">
+                                        <p class="meta-author">Категорія: <a href="{% url 'cart_view' %}?category={{ item.sofa.category }}">{{ item.sofa.category }}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Blog Item End -->
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <!-- Blog Wrapper End -->
+        </div>
+    </div>
+    </div>
+    <!-- Blog End -->
+{% endblock %}
