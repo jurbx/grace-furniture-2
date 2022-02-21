@@ -142,16 +142,17 @@
                                 <h5 class="widget-title">Категорії</h5>
 
                                 <ul class="widget-color">
-                                    {% for item in categories %}
+                                {% for item in types %}
                                     <li>
                                         <label>
                                             <span class="form-check">
-                        <input name="category" class="form-check-input shadow" data-color="#434A54" type="checkbox" value="{{ item.name }}">
+                        <input name="type" class="form-check-input shadow" data-color="#434A54" type="checkbox" value="{{ item.name }}">
                     </span>
                                             <a>{{ item.name }}</a>
                                         </label>
                                     </li>
                                     {% endfor %}
+
 
                                 </ul><br>
                             <input type="submit" value="Оновити" class="btn btn-lg btn-block btn-primary">
@@ -160,11 +161,11 @@
                             <h5 class="widget-title">Види меблів</h5>
 
                                 <ul class="widget-color">
-                                    {% for item in types %}
+                                    {% for item in categories %}
                                     <li>
                                         <label>
                                             <span class="form-check">
-                        <input name="type" class="form-check-input shadow" data-color="#434A54" type="checkbox" value="{{ item.name }}">
+                        <input name="category" class="form-check-input shadow" data-color="#434A54" type="checkbox" value="{{ item.name }}">
                     </span>
                                             <a>{{ item.name }}</a>
                                         </label>
