@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SofaModels, Cart3dModels, CartImages, SofaModel, SofaTypes
+from .models import SofaModels, Cart3dModels, CartImages, SofaModel, SofaTypes, PaginatorLimit
 
 
 class Cart3dModelsInline(admin.StackedInline):
@@ -21,3 +21,4 @@ class CartSectionAdmin(admin.ModelAdmin):
 
 admin.site.register(SofaModels)
 admin.site.register(SofaTypes)
+admin.site.register(PaginatorLimit)
