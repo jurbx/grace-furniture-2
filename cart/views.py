@@ -1,13 +1,9 @@
 from django.core.paginator import Paginator
 from django.db.models import Max
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse_lazy, reverse
-from django.utils.text import slugify
 
-from .models import SofaModel, CartImages, SofaModels, SofaTypes, Cart3dModels
+from .models import SofaModel, CartImages, SofaModels, SofaTypes, Cart3dModels, PaginatorLimit
 import random
-from django.views import generic
 
 
 def get_random3(DBmodel, slug):
@@ -36,7 +32,11 @@ def cart_view(request):
     if cur_type := request.GET.getlist('type'):
         sofas = sofas.filter(sofa_type__name__in=cur_type)
 
-    paginator = Paginator(sofas, 9)
+    max_page = 9
+    paginator_limit = PaginatorLimit.objects.all()
+    if paginator_limit:
+        max_page = paginator_limit[0].number
+    paginator = Paginator(sofas, max_page)
     page = request.GET.get('page')
     sofas = paginator.get_page(page)
 
