@@ -45,15 +45,13 @@ class SofaModel(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        slug = slugify(self.title)
-        if id := SofaModel.objects.filter(slug=datetime.now()):
-            if id.exists():
-                time = datetime.now()
-                time = time.strftime('%H%S')
-                self.slug = f'{slug}{time}'
-        else:
-            self.slug = slug
         super().save(*args, **kwargs)
+        if not self.slug:
+            slug = slugify(self.title)
+            if id := SofaModel.objects.filter(slug=slug):
+                if id.exists():
+                    self.slug = f'{slug}{self.id}'
+                    super().save(*args, **kwargs)
 
 
 class CartImages(models.Model):
