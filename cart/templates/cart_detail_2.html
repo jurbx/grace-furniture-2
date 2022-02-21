@@ -1,4 +1,4 @@
-{% extends 'index-2.html' %}
+{% extends 'index.html' %}
 {% block title %}
     <title>Каталог</title>
 {% endblock %}
@@ -37,10 +37,12 @@
                                         <li><button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i class="fas fa-th"></i></button></li>
                                         <li><button data-bs-toggle="tab" data-bs-target="#list"><i class="fas fa-list"></i></button></li>
                                     </ul>
-                                    <p class="shop-text">{% if not cur_color and not cur_type and not cur_category %}Показано {{ sofas|length }} товари
-                                                        {% else %}Показано {{ sofas|length }} товари за фільтрами: {% for item in cur_category %}{{ item }}, {% endfor %}
+                                    <p class="shop-text">{% if sofas %}
+                                                                {% if not cur_color and not cur_type and not cur_category %}Показано {{ sofas|length }} товари
+                                                                {% else %}Показано {{ sofas|length }} товари за фільтрами: {% for item in cur_category %}{{ item }}, {% endfor %}
                                                                                                                    {% for item in cur_type %}{{ item }}, {% endfor %}
-                                                                                                                    {% for item in cur_color %}{{ item }}, {% endfor %}{% endif %}</p>
+                                                                                                                    {% for item in cur_color %}{{ item }}, {% endfor %}{% endif %}
+                                                            {% endif %}</p>
                                 </div>
                                 <!-- Shop Top content End -->
                             </div>

@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -25,3 +27,6 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('shopwindow/', include('shopwindow.urls')),
 ]
+
+handler404 = 'page_404.views.handler404'
+handler500 = 'page_404.views.handler500'

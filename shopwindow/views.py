@@ -9,9 +9,9 @@ def shopwindow(request):
     upper_slider = ShopWindowUpperSlider.objects.all()
     lower_slider = ShopWindowLowerSlider.objects.all()
     images = ShopWindowImages.objects.all()
-
-    if len(img_under_main_image) > 6:
-        img_under_main_image = img_under_main_image[:6]
+    if img_under_main_image:
+        if len(img_under_main_image) > 6:
+            img_under_main_image = img_under_main_image[:6]
     return render(request, 'shopwindow.html', context={'main_img': main_img,
                                                        'img_under_main_image': img_under_main_image,
                                                        'upper_slider': upper_slider,

@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'main_page',
     'cart',
     'shopwindow',
-    'contact'
+    'contact',
+    'page_404'
 ]
 
 MIDDLEWARE = [
