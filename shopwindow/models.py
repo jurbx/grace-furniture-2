@@ -43,7 +43,7 @@ class ShopWindowImages(models.Model):
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE, verbose_name='Диван до якого відноситься фотографія')
 
     class Meta:
-        verbose_name_plural = ''
+        verbose_name_plural = 'Центральні фотографії'
         verbose_name = 'Фотографію'
 
     def __str__(self):
