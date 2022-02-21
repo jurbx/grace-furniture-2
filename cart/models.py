@@ -52,6 +52,9 @@ class SofaModel(models.Model):
                 if id.exists():
                     self.slug = f'{slug}{self.id}'
                     super().save(*args, **kwargs)
+            else:
+                self.slug = slug
+                super(SofaModel, self).save(*args, *kwargs)
 
 
 class CartImages(models.Model):
