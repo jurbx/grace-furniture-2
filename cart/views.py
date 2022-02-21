@@ -32,7 +32,7 @@ def three_d_model(request, slug):
 def cart_view(request):
     sofas = SofaModel.objects.all()
     if cur_category := request.GET.getlist('category'):
-        sofas = sofas.objects.filter(category__name__in=cur_category)
+        sofas = sofas.objects.filter(sofa_category__name__in=cur_category)
     if cur_type := request.GET.getlist('type'):
         sofas = sofas.filter(sofa_type__name__in=cur_type)
 
