@@ -46,10 +46,10 @@ class SofaModel(models.Model):
 
     def save(self, *args, **kwargs):
         slug = slugify(self.title)
-        if not self.slug == slug:
-            self.slug = slug
         if SofaModel.objects.filter(slug=slug).exists():
-            self.slug = slugify(f'{self.slug}_{self.id}')
+            self.slug = slugify(f'{self.slug}{self.id}')
+        else:
+            self.slug = slug
         super().save(*args, **kwargs)
 
 
