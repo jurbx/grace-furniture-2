@@ -70,3 +70,6 @@ class Cart3dModels(models.Model):
     fbx_file = models.FileField(db_index=True, upload_to='cart/3d', verbose_name='Файл 3Д моделі')
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE)
 
+
+class PaginatorLimit(models.Model):
+    number = models.PositiveIntegerField(default=9)
