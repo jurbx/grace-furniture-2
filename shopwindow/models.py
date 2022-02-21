@@ -8,7 +8,10 @@ class MainImages(models.Model):
 
     class Meta:
         verbose_name_plural = 'Головні фотографії вітрин'
-        verbose_name = 'Головну фотографію для вітрини'
+        verbose_name = 'Головну фотографію'
+
+    def __str__(self):
+        return f'Головна фотораграфія №{self.id}'
 
 
 class ImgUnderMainImage(models.Model):
@@ -17,7 +20,10 @@ class ImgUnderMainImage(models.Model):
 
     class Meta:
         verbose_name_plural = 'Фотографії під головними фотографіями'
-        verbose_name = 'Фотографію під головними фотографіями'
+        verbose_name = 'Фотографію'
+
+    def __str__(self):
+        return f'Фотографія №{self.id}'
 
 
 class ShopWindowUpperSlider(models.Model):
@@ -25,8 +31,11 @@ class ShopWindowUpperSlider(models.Model):
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE, verbose_name='Диван до якого відноситься фотографія')
 
     class Meta:
-        verbose_name_plural = ''
-        verbose_name = ''
+        verbose_name_plural = 'Вернхій слайдер вітрин'
+        verbose_name = 'Фотографію'
+
+    def __str__(self):
+        return f'Фотографія №{self.id}'
 
 
 class ShopWindowImages(models.Model):
@@ -35,7 +44,10 @@ class ShopWindowImages(models.Model):
 
     class Meta:
         verbose_name_plural = ''
-        verbose_name = ''
+        verbose_name = 'Фотографію'
+
+    def __str__(self):
+        return f'Фотографія №{self.id}'
 
 
 class ShopWindowLowerSlider(models.Model):
@@ -43,5 +55,8 @@ class ShopWindowLowerSlider(models.Model):
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE, verbose_name='Диван до якого відноситься фотографія')
 
     class Meta:
-        verbose_name_plural = ''
-        verbose_name = ''
+        verbose_name_plural = 'Нижній слайдер вітрин'
+        verbose_name = 'Фотографію'
+
+    def __str__(self):
+        return f'Фотографія №{self.id}'

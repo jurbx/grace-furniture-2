@@ -14,7 +14,7 @@ class HeroSection(models.Model):
         verbose_name = 'Головну картинку'
 
     def __str__(self):
-        return self.title
+        return f'Головна картинка №{self.id}'
 
 
 class ShopWindow(models.Model):
@@ -25,6 +25,9 @@ class ShopWindow(models.Model):
         verbose_name_plural = 'Вітрини'
         verbose_name = 'Вітрини'
 
+    def __str__(self):
+        return f'Модель вітрини №{self.id}'
+
 
 class AboutUs(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок')
@@ -34,3 +37,6 @@ class AboutUs(models.Model):
     class Meta:
         verbose_name_plural = 'Про нас'
         verbose_name = 'Про нас'
+
+    def __str__(self):
+        return self.title
