@@ -1,6 +1,5 @@
 from django.urls import path
 from .views import cart_view, model_view, three_d_model
-from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
