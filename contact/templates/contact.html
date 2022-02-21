@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
 
 <div class="page-banner-section section">
         <div class="container">
@@ -90,8 +90,8 @@
             <div class="col-12 col-sm-8 col-lg-6">
                 <!-- Section Heading-->
                 <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                    <h3><span>{{ title.title }} </span></h3>
-                    <p>{{ title.desc|linebreaks }}</p>
+                    <h3><span><font color="black">{{ title.title }}</font></span></h3>
+                    <p><font color="black">{{ title.desc|linebreaks }}</font></p>
                     <div class="line"></div>
                 </div>
             </div>
@@ -103,11 +103,11 @@
                     {% for item in shop %}
                     <div class="card border-0 wow fadeInUp" data-wow-delay="{{ forloop.counter|add:1|mul:0.1 }}s" style="visibility: visible; animation-delay: {{ forloop.counter|add:1|mul:0.1 }}s; animation-name: fadeInUp;">
                         <div class="card-header" id="headingOne">
-                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#{{ item.city }}" aria-expanded="true" aria-controls="{{ item.city }}">{{ item.city }}<span class="lni-chevron-up"></span></h6>
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#{{ item.city }}" aria-expanded="true" aria-controls="{{ item.city }}"><font color="black">{{ item.city }}</font><span class="lni-chevron-up"></span></h6>
                         </div>
                         <div class="collapse" id="{{ item.city }}" aria-labelledby="headingOne" data-parent="#faqAccordion">
                             <div class="card-body">
-                                <p>{{ item.info|linebreaks }}</p>
+                                <p><font color="black">{{ item.info|linebreaks }}</font></p>
                             </div>
                         </div>
                     </div>
