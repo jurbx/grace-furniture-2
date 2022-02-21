@@ -30,21 +30,16 @@ def three_d_model(request, slug):
 
 
 def cart_view(request):
-    queryset = SofaModel.objects.none()
-    sofas = queryset
+    sofas = SofaModel.objects.all()
     if cur_category := request.GET.getlist('category'):
-        sofas = SofaModel.objects.filter(category__name__in=cur_category)
+        sofas = sofas.objects.filter(category__name__in=cur_category)
     if cur_type := request.GET.getlist('type'):
         sofas = sofas.filter(sofa_type__name__in=cur_type)
 
-    queryset = sofas
-
-    if not cur_category and not cur_type:
-        queryset = SofaModel.objects.all()
 
     categories = SofaModels.objects.all()
     types = SofaTypes.objects.all()
-    return render(request, 'cart_detail_2.html', context={'sofas': queryset,
+    return render(request, 'cart_detail_2.html', context={'sofas': sofas,
                                                           'categories': categories,
                                                           'cur_category': cur_category,
                                                           'cur_type': cur_type,
