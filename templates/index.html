@@ -56,7 +56,11 @@
 
                         <!-- Header Logo Start -->
                         <div class="header-logo">
+                            {% if  logo %}
+                            <a href="{% url 'index' %}"><img src="{{ logo.img.url }}" alt=""></a>
+                            {% else %}
                             <h1><a href="{% url 'index' %}"><font color="black">Grace-Furniture</font></a></h1>
+                            {% endif %}
                         </div>
                         <!-- Header Logo End -->
 
@@ -147,7 +151,11 @@
 
                         <!-- Header Logo Start -->
                         <div class="header-logo text-center">
-                            <a href="{% url 'index' %}"><font color="black">Grace-Furniture</font></a></h1>
+                           {% if  logo %}
+                            <a href="{% url 'index' %}"><img src="{{ logo.img.url }}" alt=""></a>
+                            {% else %}
+                            <h1><a href="{% url 'index' %}"><font color="black">Grace-Furniture</font></a></h1>
+                            {% endif %}
                         </div>
                         <!-- Header Logo End -->
 
@@ -233,7 +241,11 @@
 
                             <!-- footer Widget Start -->
                             <div class="footer-widget">
-                                <a href="#"><img src="{% static 'assets/images/logo-white.png' %}" alt=""></a>
+                               {% if  logo %}
+                                <a href="{% url 'index' %}"><img src="{{ logo.img.url }}" alt=""></a>
+                                {% else %}
+                                <h1><a href="{% url 'index' %}"><font color="black">Grace-Furniture</font></a></h1>
+                                {% endif %}
                                 <div class="footer-widget-text">
                                     {% if contact %}
                                     <p><strong>Адреса :</strong> {{ contact.address|linebreaks }}</p>

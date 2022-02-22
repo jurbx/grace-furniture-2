@@ -9,7 +9,7 @@ def menu(request):
     if network := SocialNetwork.objects.all():
         network = network[0]
 
-    if logo := SocialNetwork.objects.all():
+    if logo := Logo.objects.all():
         logo = logo[0]
     return {
         'contact': contact,
