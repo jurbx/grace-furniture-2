@@ -36,6 +36,7 @@ class SofaModel(models.Model):
     sofa_type = models.ForeignKey(SofaTypes, on_delete=models.CASCADE, verbose_name='Тип')
     priority = models.PositiveIntegerField(verbose_name='Приоритет показу диванів в каталозі', default=1)
     new = models.BooleanField(default=False, verbose_name='Новинка')
+    show_in_main_page = models.BooleanField(default=True)
 
     class Meta:
         verbose_name_plural = 'Дивани'
