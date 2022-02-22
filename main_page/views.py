@@ -28,6 +28,6 @@ def main_view(request):
 
 def test(request):
     import requests
-    url = 'http://grace-furniture.com.ua//static/3C6437EAED8F3A81DEA63FB3EB1D40FB.txt'
+    url = 'http://grace-furniture.com.ua/static/3C6437EAED8F3A81DEA63FB3EB1D40FB.txt'
     file = requests.get(url)
     return FileResponse(file)
