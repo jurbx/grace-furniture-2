@@ -4516,6 +4516,10 @@ blockquote p {
   background-color: #4867AA;
 }
 
+.shop-single-content .product-additional-info .social-sharing li a.telegram {
+  background-color: #00ffff;
+}
+
 .shop-single-content .product-additional-info .social-sharing li a.twitter {
   background-color: #1DA1F2;
 }
@@ -6307,6 +6311,9 @@ blockquote p {
 
 .footer-widget .widget-social ul li a.facebook {
   background-color: #4867AA;
+}
+.footer-widget .widget-social ul li a.telegram {
+  background-color: #3EB9EA;
 }
 
 .footer-widget .widget-social ul li a.twitter {

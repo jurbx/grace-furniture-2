@@ -244,7 +244,7 @@
                                {% if  logo %}
                                 <a href="{% url 'index' %}"><img src="{{ logo.img.url }}" alt=""></a>
                                 {% else %}
-                                <h1><a href="{% url 'index' %}"><font color="black">Grace-Furniture</font></a></h1>
+                                <h1><a href="{% url 'index' %}"><font color="white">Grace-Furniture</font></a></h1>
                                 {% endif %}
                                 <div class="footer-widget-text">
                                     {% if contact %}
@@ -281,7 +281,7 @@
                                     <ul>
                                         {% if network %}
                                         <li><a class="facebook" href="{{ network.facebook }}"><i class="icon-facebook2"></i></a></li>
-                                        <li><a class="fa-telegram" href="{{ network.telegram }}"><i class="fa-telegram-plane"></i></a></li>
+                                        <li><a class="telegram" href="{{ network.telegram }}"><i class="icon-paper-plane"></i></a></li>
                                         <li><a class="instagram" href="{{ network.instagram }}"><i class="icon-instagram2"></i></a></li>
                                         {% endif %}
                                     </ul>
