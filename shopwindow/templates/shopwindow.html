@@ -66,6 +66,12 @@
                                     <a href="{% url 'model_view' item.sofa.slug %}">
                                         <img src="{{ item.img.url }}" alt="">
                                     </a>
+                                    <div class="product-desc">
+                                        <div class="product-features-reviews">
+                                            <a href="{% url 'cart_view' %}?category={{ item.sofa.category }}" class="features">{{ item.sofa.category }}</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="{% url 'model_view' item.sofa.slug %}">{{ item.sofa.title }}</a></h4>
+                                    </div>
                                 </div>
                                 <!-- Banner Box End -->
                             </div>
@@ -135,6 +141,12 @@
                                     <a href="{% url 'model_view' item.sofa.slug %}">
                                         <img src="{{ item.img.url }}" alt="">
                                     </a>
+                                    <div class="product-desc">
+                                        <div class="product-features-reviews">
+                                            <a href="{% url 'cart_view' %}?category={{ item.sofa.category }}" class="features">{{ item.sofa.category }}</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="{% url 'model_view' item.sofa.slug %}">{{ item.sofa.title }}</a></h4>
+                                    </div>
                                 </div>
                                 <!-- Banner Box End -->
                             </div>
