@@ -243,9 +243,9 @@
                                 <a href="#"><img src="{% static 'assets/images/logo-white.png' %}" alt=""></a>
                                 <div class="footer-widget-text">
                                     {% if contact %}
-                                    <p><strong>Адреса :</strong> {{ contact.address }}</p>
-                                    <p><strong>Телефон :</strong> {{ contact.phone }}</p>
-                                    <p><strong>Email :</strong> {{ contact.email }}</p>
+                                    <p><strong>Адреса :</strong> {{ contact.address|linebreaks }}</p>
+                                    <p><strong>Телефон :</strong> {{ contact.phone|linebreaks }}</p>
+                                    <p><strong>Email :</strong> {{ contact.email|linebreaks }}</p>
                                     {% endif %}
                                 </div>
                             </div>
@@ -302,143 +302,6 @@
         <i class="icon-chevron-up"></i>
     </a>
     <!--Back To End-->
-
-    <!-- Quick View Start -->
-    <div class="modal fade" id="quickView">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- Shop Gallery image Start -->
-                            <div class="quick-view-image vertical-slider-wrap">
-                                <div class="swiper-container quick-view-slider">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="{% static 'assets/images/shop-single/shop-single-01.jpg' %}" alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="{% static 'assets/images/shop-single/shop-single-02.jpg' %}" alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="{% static 'assets/images/shop-single/shop-single-03.jpg' %}" alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="{% static 'assets/images/shop-single/shop-single-04.jpg' %}" alt="Product Image">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="single-img">
-                                                <img src="{% static 'assets/images/shop-single/shop-single-05.jpg' %}" alt="Product Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                    </div>
-                                </div>
-                                <div class="quick-view-slider-nav swiper-container">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="{% static 'assets/images/shop-single/shop-single-01.jpg' %}" alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{% static 'assets/images/shop-single/shop-single-02.jpg' %}" alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{% static 'assets/images/shop-single/shop-single-03.jpg' %}" alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{% static 'assets/images/shop-single/shop-single-04.jpg' %}" alt="Product Thumnail">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="{% static 'assets/images/shop-single/shop-single-05.jpg' %}" alt="Product Thumnail">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Shop Gallery image End -->
-                        </div>
-                        <div class="col-md-6">
-                            <!-- Shop Single Start -->
-                            <div class="shop-single-content quick-view-content">
-                                <h3 class="product-name">Juicy Couture Juicy Quilted Terry Track Jacket</h3>
-                                <p class="reference">Reference: Demo</p>
-                                <ul class="shop-rating-content">
-                                    <li>
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><i class="fal fa-comment-dots"></i> Read reviews <span>(3)</span></a></li>
-                                    <li><a href="#"><i class="fal fa-edit"></i> Write a review</a></li>
-                                </ul>
-                                <div class="product-prices">
-                                    <span class="old-price">$35.90</span>
-                                    <span class="sale-price">$28.72</span>
-                                    <span class="discount-percentage">Save 20%</span>
-                                </div>
-                                <div class="product-description">
-                                    <ul>
-                                        <li>Score extra points when it comes to your sporty look with the Juicy Couture™ Juicy Quilted Terry Track Jacket.</li>
-                                        <li>Soft terry construction in a quilted design.</li>
-                                        <li>Front zipper closure.</li>
-                                        <li>61% cotton, 39% polyester;</li>
-                                        <li>Lining: 58% cotton, 42% polyester.</li>
-                                    </ul>
-                                </div>
-                                <div class="product-size">
-                                    <span class="label">Size</span>
-                                    <div class="size-select">
-                                        <select>
-                                            <option value="0">S</option>
-                                            <option value="0">M</option>
-                                            <option value="0">L</option>
-                                            <option value="0">XL</option>
-                                        </select>
-                                        <i class="icon-chevron-down"></i>
-                                    </div>
-                                </div>
-                                <div class="product-quantity-cart">
-                                    <span class="label">Quantity</span>
-                                    <div class="product-quantity-cart-wrapper d-flex">
-                                        <div class="product-quantity d-inline-flex">
-                                            <button type="button" class="sub"><i class="icon-chevron-down"></i></button>
-                                            <input type="text" value="1" />
-                                            <button type="button" class="add"><i class="icon-chevron-up"></i></button>
-                                        </div>
-                                        <div class="product-cart">
-                                            <button class="btn btn-dark btn-hover-primary">+ Add to Cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-additional-info">
-                                    <ul class="social-sharing">
-                                        <li><a class="facebook" href="#"><i class="fab fa-facebook-square"></i> Share</a></li>
-                                        <li><a class="twitter" href="#"><i class="fab fa-twitter"></i> Tweet</a></li>
-                                        <li><a class="google" href="#"><i class="fab fa-google-plus-g"></i> Google+</a></li>
-                                        <li><a class="pinterest" href="#"><i class="fab fa-pinterest-square"></i> Pinterest</a></li>
-                                    </ul>
-                                    <p class="panel-product-actions"><a href="#" class="action-btn wishlist"><i class="icon-heart"></i> Add to wishlist </a></p>
-                                    <p class="panel-product-actions"><button class="action-btn wishlist"><i class="icon-sliders"></i> Add to compare</button></p>
-                                </div>
-                            </div>
-                            <!-- Shop Single End -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick View End -->
 
 
 

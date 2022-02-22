@@ -2,13 +2,16 @@ from django.db import models
 
 
 class Contact(models.Model):
-    address = models.CharField(max_length=200, verbose_name='Адреса')
-    phone = models.CharField(max_length=100, verbose_name='Телефон')
-    email = models.CharField(max_length=200, verbose_name='Email')
+    address = models.TextField(max_length=200, verbose_name='Адреса')
+    phone = models.TextField(max_length=100, verbose_name='Телефон')
+    email = models.TextField(max_length=200, verbose_name='Email')
 
     class Meta:
         verbose_name_plural = 'Контакти'
         verbose_name = 'Контакти'
+
+    def __str__(self):
+        return f'Обєкт контактів №{self.id}'
 
 
 class TitleOurShop(models.Model):
