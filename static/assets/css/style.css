@@ -3192,7 +3192,7 @@ blockquote p {
 
 .slider-active .swiper-button-next,
 .slider-active .swiper-button-prev {
-  color: #FFF;
+  color: black;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.3s linear;
