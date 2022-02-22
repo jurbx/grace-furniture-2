@@ -11,8 +11,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
-
+{% if logo %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ logo.img.url }}">
+{% endif %}
 
 
     <!-- CSS
@@ -102,11 +103,9 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- Dropdown Language End -->
                                     <div class="dropdown-language">
-                                        <span class="selected"><img src="{% static 'assets/images/flag/01.jpg' %}" alt="">English</span>
+                                        <span class="selected"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Ukrainian</span>
                                         <ul class="language-list">
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/01.jpg' %}" alt="">English</a></li>
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/02.jpg' %}" alt=""> اللغة العربية</a></li>
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/03.jpg' %}" alt=""> Spanish</a></li>
+                                            <li><a href="#"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Ukrainian</a></li>
                                         </ul>
                                     </div>
                                     <!-- Dropdown Language End -->
@@ -167,11 +166,9 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- Dropdown Language End -->
                                     <div class="dropdown-language">
-                                        <span class="selected"><img src="{% static 'assets/images/flag/01.jpg' %}" alt="">English</span>
+                                        <span class="selected"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Ukrainian</span>
                                         <ul class="language-list">
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/01.jpg' %}" alt="">English</a></li>
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/02.jpg' %}" alt=""> اللغة العربية</a></li>
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/03.jpg' %}" alt=""> Spanish</a></li>
+                                            <li><a href="#"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Ukrainian</a></li>
                                         </ul>
                                     </div>
                                     <!-- Dropdown Language End -->
@@ -193,12 +190,8 @@
 
     <!-- off Canvas Start -->
     <div class="off-canvas-box">
-        <div class="canvas-action">
-            <a class="action" href="#"><i class="icon-sliders"></i> Compare <span class="action-num">(0)</span></a>
-            <a class="action" href="#"><i class="icon-heart"></i> Wishlist <span class="action-num">(0)</span></a>
-        </div>
         <div class="canvas-close-bar">
-            <span>Menu</span>
+            <span>Меню</span>
             <a class="menu-close" href="#"><i class="icon-arrow-left"></i></a>
         </div>
         <div class="canvas-menu">
@@ -274,11 +267,11 @@
                             <div class="footer-widget">
                                 <div class="widget-social">
                                     <ul>
-                                        <li><a class="facebook" href="#"><i class="icon-facebook2"></i></a></li>
-                                        <li><a class="twitter" href="#"><i class="icon-twitter2"></i></a></li>
-                                        <li><a class="youtube" href="#"><i class="icon-youtube2"></i></a></li>
-                                        <li><a class="instagram" href="#"><i class="icon-instagram2"></i></a></li>
-                                        <li><a class="linkedin" href="#"><i class="icon-linkedin2"></i></a></li>
+                                        {% if network %}
+                                        <li><a class="facebook" href="{{ network.facebook }}"><i class="icon-facebook2"></i></a></li>
+                                        <li><a class="fa-telegram" href="{{ network.telegram }}"><i class="fa-telegram-plane"></i></a></li>
+                                        <li><a class="instagram" href="{{ network.instagram }}"><i class="icon-instagram2"></i></a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
