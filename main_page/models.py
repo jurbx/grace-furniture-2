@@ -8,7 +8,7 @@ class HeroSection(models.Model):
     context = models.TextField(max_length=500, blank=True, verbose_name='Текст до картинки')
     img = models.ImageField(upload_to='section/img', verbose_name='Фотографія')
     sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE, verbose_name='Диван до якого відноситься картинка')
-    priority = models.PositiveIntegerField(default=1)
+    priority = models.PositiveIntegerField(default=1, verbose_name='Пріоритет показу')
 
     class Meta:
         verbose_name_plural = 'Головні картинки'
