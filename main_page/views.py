@@ -23,3 +23,8 @@ def main_view(request):
                                                       'about': about
                                                       })
 
+
+def footer(request):
+    if contact := Contact.objects.all():
+        contact = contact[0]
+    return {'contact': contact}
