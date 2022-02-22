@@ -5,7 +5,7 @@ from contact.models import Contact
 
 
 def main_view(request):
-    hero = HeroSection.objects.all().order_by('id')
+    hero = HeroSection.objects.all().order_by('-priority')
     sofa_models = SofaModels.objects.filter(show_in_main_page=True)
     shopwindow = ShopWindow.objects.all()
 
