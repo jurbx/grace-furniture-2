@@ -1,7 +1,9 @@
+from django.http import FileResponse
 from django.shortcuts import render
 from .models import ShopWindow, HeroSection, AboutUs
 from cart.models import SofaModels
 from contact.models import Contact
+
 
 
 def main_view(request):
@@ -22,3 +24,10 @@ def main_view(request):
                                                       'contact': contact,
                                                       'about': about
                                                       })
+
+
+def test(request):
+    import requests
+    url = 'http://grace-furniture.com.ua//static/3C6437EAED8F3A81DEA63FB3EB1D40FB.txt'
+    file = requests.get(url)
+    return FileResponse(file)

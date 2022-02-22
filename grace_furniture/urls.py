@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from main_page.views import test
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('contact/', include('contact.urls')),
     path('shopwindow/', include('shopwindow.urls')),
+    path('.well-known/pki-validation/3C6437EAED8F3A81DEA63FB3EB1D40FB.txt', test)
 ]
 
 handler404 = 'page_404.views.handler404'
