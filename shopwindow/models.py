@@ -60,3 +60,15 @@ class ShopWindowLowerSlider(models.Model):
 
     def __str__(self):
         return self.sofa.title
+
+
+class ImgUnderLowerSlider(models.Model):
+    img = models.ImageField(upload_to='shopwindow/img_under_lower_slider', verbose_name='Фотографія')
+    sofa = models.ForeignKey(SofaModel, on_delete=models.CASCADE, verbose_name='Диван до якого відноситься фотографія')
+
+    class Meta:
+        verbose_name_plural = 'Фотографії під нижнім слайдером'
+        verbose_name = 'Фотографію'
+
+    def __str__(self):
+        return self.sofa.title

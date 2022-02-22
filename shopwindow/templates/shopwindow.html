@@ -35,7 +35,7 @@
             <div class="swiper-button-prev"></div>
         </div>
     </div>
-    <!-- Slider End -->
+    <!-- Images End -->
 
     <!-- Banner Start -->
     <div class="section">
@@ -74,7 +74,7 @@
     <!-- Banner End -->
 
 
-    <!-- Blog Start -->
+    <!-- Slider Start -->
     <div class="section section-padding mt-n2">
         <div class="container">
             <!-- Blog Wrapper Start -->
@@ -115,7 +115,7 @@
     <!-- Blog End -->
 
 
-    <!-- Banner Start -->
+    <!-- Images Start -->
         <div class="section">
             <div class="container-fluid custom-container">
                 <!-- Banner Wrapper Start -->
@@ -147,7 +147,7 @@
         </div>
         <!-- Banner End -->
 
-    <!-- Blog Start -->
+    <!-- Slider Start -->
     <div class="section section-padding mt-n2">
         <div class="container">
             <!-- Blog Wrapper Start -->
@@ -186,4 +186,37 @@
     </div>
     </div>
     <!-- Blog End -->
+
+
+    <!-- Images Start -->
+        <div class="section">
+            <div class="container-fluid custom-container">
+                <!-- Banner Wrapper Start -->
+                <div class="banner-wrapper ml-xl-n6 mr-xl-n6">
+                    <div class="row">
+                        {% if second_images %}
+                            {% for item in second_images %}
+                                <div class="col-md-4">
+                                <!-- Banner Box Start -->
+                                <div class="banner-box">
+                                    <a href="{% url 'model_view' item.sofa.slug %}">
+                                        <img src="{{ item.img.url }}" alt="">
+                                    </a>
+                                    <div class="product-desc text-center">
+                                        <div class="product-features-reviews">
+                                            <a href="{% url 'cart_view' %}?category={{ item.sofa.category }}" class="features">{{ item.sofa.category }}</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="{% url 'model_view' item.sofa.slug %}">{{ item.sofa.title }}</a></h4>
+                                    </div>
+                                </div>
+                                <!-- Banner Box End -->
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- Banner Wrapper End -->
+            </div>
+        </div>
+        <!-- Banner End -->
 {% endblock %}
