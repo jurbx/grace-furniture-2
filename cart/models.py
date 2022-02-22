@@ -1,10 +1,11 @@
 from django.db import models
 from django.utils.text import slugify
-from datetime import datetime
+
 
 class SofaModels(models.Model):
     name = models.CharField(max_length=100, db_index=True, unique=True, verbose_name='Назва моделі')
     img = models.ImageField(upload_to='cart/img/model_img', verbose_name='Картинка моделі')
+    show_in_main_page = models.BooleanField(default=True, verbose_name='Показувати на головній сторінці')
 
     class Meta:
         verbose_name_plural = 'Моделі диванів'
@@ -36,7 +37,6 @@ class SofaModel(models.Model):
     sofa_type = models.ForeignKey(SofaTypes, on_delete=models.CASCADE, verbose_name='Тип')
     priority = models.PositiveIntegerField(verbose_name='Приоритет показу диванів в каталозі', default=1)
     new = models.BooleanField(default=False, verbose_name='Новинка')
-    show_in_main_page = models.BooleanField(default=True, verbose_name='Показувати на головній сторінці')
 
     class Meta:
         verbose_name_plural = 'Дивани'

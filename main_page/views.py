@@ -6,7 +6,7 @@ from contact.models import Contact
 
 def main_view(request):
     hero = HeroSection.objects.all().order_by('id')
-    sofa_models = SofaModels.objects.filter(sofamodel__show_in_main_page=True)
+    sofa_models = SofaModels.objects.filter(show_in_main_page=True)
     shopwindow = ShopWindow.objects.all()
 
     if contact := Contact.objects.all():
