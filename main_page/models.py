@@ -14,7 +14,7 @@ class HeroSection(models.Model):
         verbose_name = 'Головну картинку'
 
     def __str__(self):
-        return f'Головна картинка №{self.id}'
+        return self.sofa.title
 
 
 class ShopWindow(models.Model):
@@ -26,7 +26,7 @@ class ShopWindow(models.Model):
         verbose_name = 'Вітрини'
 
     def __str__(self):
-        return f'Модель вітрини №{self.id}'
+        return self.sofa.title
 
 
 class AboutUs(models.Model):

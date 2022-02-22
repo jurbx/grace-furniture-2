@@ -11,7 +11,7 @@ class MainImages(models.Model):
         verbose_name = 'Головну фотографію'
 
     def __str__(self):
-        return f'Головна фотораграфія №{self.id}'
+        return self.sofa.title
 
 
 class ImgUnderMainImage(models.Model):
@@ -23,7 +23,7 @@ class ImgUnderMainImage(models.Model):
         verbose_name = 'Фотографію'
 
     def __str__(self):
-        return f'Фотографія №{self.id}'
+        return self.sofa.title
 
 
 class ShopWindowUpperSlider(models.Model):
@@ -35,7 +35,7 @@ class ShopWindowUpperSlider(models.Model):
         verbose_name = 'Фотографію'
 
     def __str__(self):
-        return f'Фотографія №{self.id}'
+        return self.sofa.title
 
 
 class ShopWindowImages(models.Model):
@@ -47,7 +47,7 @@ class ShopWindowImages(models.Model):
         verbose_name = 'Фотографію'
 
     def __str__(self):
-        return f'Фотографія №{self.id}'
+        return self.sofa.title
 
 
 class ShopWindowLowerSlider(models.Model):
@@ -59,4 +59,4 @@ class ShopWindowLowerSlider(models.Model):
         verbose_name = 'Фотографію'
 
     def __str__(self):
-        return f'Фотографія №{self.id}'
+        return self.sofa.title
