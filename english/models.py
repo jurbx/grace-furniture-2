@@ -25,5 +25,8 @@ class AboutUsEn(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок англійською')
     desc = models.TextField(max_length=1000, verbose_name='Текст під заголовком англійською')
 
+    class Meta:
+        verbose_name_plural = 'Про нас(english)'
+        verbose_name = 'Про нас(english)'
 
 # End Main Page
