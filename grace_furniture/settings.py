@@ -22,27 +22,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-1l1$p$w8g9!m^#z7$z7i2e6(5ukt%nx%gt^_r2&_5=$b^k)4lp'
+SECRET_KEY = 'django-insecure-1l1$p$w8g9!m^#z7$z7i2e6(5ukt%nx%gt^_r2&_5=$b^k)4lp'
 
-DB_NAME = os.environ.get('DB_NAME')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_HOST = os.environ.get('DB_HOST')
-DB_USER = os.environ.get('DB_USER')
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# DB_NAME = os.environ.get('DB_NAME')
+# DB_PASSWORD = os.environ.get('DB_PASSWORD')
+# DB_HOST = os.environ.get('DB_HOST')
+# DB_USER = os.environ.get('DB_USER')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-# AWS_ACCESS_KEY_ID = 'AKIAZKOFJPO5MXE3JWZB'
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-# AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-# AWS_STORAGE_BUCKET_NAME = 'grace-furniture'
-# AWS_S3_CUSTOM_DOMAIN = 'grace-furniture.s3-accelerate.amazonaws.com'
-AWS_S3_CUSTOM_DOMAIN = os.environ['AWS_S3_CUSTOM_DOMAIN']
+# AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_ACCESS_KEY_ID = 'AKIAZKOFJPO5MXE3JWZB'
+# AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_STORAGE_BUCKET_NAME = 'grace-furniture'
+# AWS_S3_CUSTOM_DOMAIN = os.environ['AWS_S3_CUSTOM_DOMAIN']
+AWS_S3_CUSTOM_DOMAIN = 'grace-furniture.s3-accelerate.amazonaws.com'
 
 AWS_QUERYSTRING_AUTH = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -104,26 +104,26 @@ WSGI_APPLICATION = 'grace_furniture.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': '5432',
-}
-}
-
-db = dj_database_url.config()
-DATABASES['default'].update(db)
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': DB_NAME,
+#         'USER': DB_USER,
+#         'PASSWORD': DB_PASSWORD,
+#         'HOST': DB_HOST,
+#         'PORT': '5432',
 # }
+# }
+#
+# db = dj_database_url.config()
+# DATABASES['default'].update(db)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
