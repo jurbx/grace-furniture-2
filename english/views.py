@@ -35,7 +35,7 @@ def cart_view_english(request):
     if cur_category := request.GET.getlist('category'):
         sofas = sofas.filter(category__name__in=cur_category)
     if cur_type := request.GET.getlist('type'):
-        sofas = sofas.filter(sofa_type__name__in=cur_type)
+        sofas = sofas.filter(sofa_type__name_english__in=cur_type)
 
     max_page = 9
     paginator_limit = PaginatorLimit.objects.all()
