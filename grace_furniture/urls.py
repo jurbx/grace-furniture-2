@@ -24,6 +24,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('contact/', include('contact.urls')),
     path('shopwindow/', include('shopwindow.urls')),
+    path('en/', include('english.urls')),
 ]
 
 handler404 = 'page_404.views.handler404'

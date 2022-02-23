@@ -17,6 +17,8 @@ class SofaModels(models.Model):
 
 class SofaTypes(models.Model):
     name = models.CharField(max_length=100, db_index=True, unique=True, verbose_name='Назва типу')
+    name_english = models.CharField(max_length=100, unique=True, blank=True, null=True,
+                                    verbose_name='Назва типу англійською')
 
     def __str__(self):
         return self.name
@@ -37,6 +39,12 @@ class SofaModel(models.Model):
     sofa_type = models.ForeignKey(SofaTypes, on_delete=models.CASCADE, verbose_name='Тип')
     priority = models.PositiveIntegerField(verbose_name='Приоритет показу диванів в каталозі', default=1)
     new = models.BooleanField(default=False, verbose_name='Новинка')
+    desc_english = models.TextField(max_length=1000, default='.', blank=True,
+                                    verbose_name='Короткий опис товару англійською')
+    detail_english = models.TextField(max_length=2000, default='.', blank=True,
+                                      verbose_name='Детальний опис англійською')
+    characteristic_english = models.TextField(max_length=2000, default='.', blank=True,
+                                              verbose_name='Характеристики товару англійською')
 
     class Meta:
         verbose_name_plural = 'Дивани'

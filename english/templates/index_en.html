@@ -57,9 +57,9 @@
                         <!-- Header Logo Start -->
                         <div class="header-logo">
                             {% if  logo %}
-                            <a href="{% url 'index' %}"><img src="{{ logo.img.url }}" alt=""></a>
+                            <a href="{% url 'index_english' %}"><img src="{{ logo.img.url }}" alt=""></a>
                             {% else %}
-                            <h1><a href="{% url 'index' %}"><font color="black">Grace-Furniture</font></a></h1>
+                            <h1><a href="{% url 'index_english' %}"><font color="black">Grace-Furniture</font></a></h1>
                             {% endif %}
                         </div>
                         <!-- Header Logo End -->
@@ -73,16 +73,16 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href={% url 'index' %}>Головна</a>
+                                        <a href={% url 'index_english' %}>Main page</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'cart_view' %}">Каталог</a>
+                                        <a href="{% url 'cart_view_english' %}">Catalog</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'contact_view' %}">Контакти</a>
+                                        <a href="{% url 'contact_view_english' %}">Contact</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'shopwindow' %}">Вітрини</a>
+                                        <a href="{% url 'shopwindow_english' %}">Shop Window</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -96,7 +96,7 @@
                         <!-- Header Action Start -->
                         <div class="header-actions">
                             <div class="dropdown">
-                                <a href="{% url 'cart_view' %}" class="header-action-btn" role="button">
+                                <a href="{% url 'cart_view_english' %}" class="header-action-btn" role="button">
                                     <i class="icon-shopping-bag2"></i>
                                 </a>
                             </div>
@@ -107,9 +107,9 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- Dropdown Language End -->
                                     <div class="dropdown-language">
-                                        <span class="selected"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Українська</span>
+                                        <span class="selected"><img src="{% static 'assets/images/flag/01.jpg' %}" alt="">English</span>
                                         <ul class="language-list">
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/01.jpg' %}" alt="">English</a></li>
+                                            <li><a href="{% url 'index' %}"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Українська</a></li>
                                         </ul>
                                     </div>
                                     <!-- Dropdown Language End -->
@@ -152,9 +152,9 @@
                         <!-- Header Logo Start -->
                         <div class="header-logo text-center">
                            {% if  logo %}
-                            <a href="{% url 'index' %}"><img src="{{ logo.img.url }}" alt=""></a>
+                            <a href="{% url 'index_english' %}"><img src="{{ logo.img.url }}" alt=""></a>
                             {% else %}
-                            <h1><a href="{% url 'index' %}"><font color="black">Grace-Furniture</font></a></h1>
+                            <h1><a href="{% url 'index_english' %}"><font color="black">Grace-Furniture</font></a></h1>
                             {% endif %}
                         </div>
                         <!-- Header Logo End -->
@@ -164,7 +164,7 @@
 
                         <!-- Header Action Start -->
                         <div class="header-actions">
-                            <a href="{% url 'cart_view' %}" class="header-action-btn">
+                            <a href="{% url 'cart_view_english' %}" class="header-action-btn">
                                 <i class="icon-shopping-bag2"></i>
                             </a>
                             <div class="dropdown">
@@ -174,9 +174,9 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- Dropdown Language End -->
                                     <div class="dropdown-language">
-                                        <span class="selected"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Ukrainian</span>
+                                        <span class="selected"><img src="{% static 'assets/images/flag/01.jpg' %}" alt="">English</span>
                                         <ul class="language-list">
-                                            <li><a href="#"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Ukrainian</a></li>
+                                            <li><a href="{% url 'index' %}"><img src="{% static 'assets/images/flag/ukr.png' %}" alt="">Українська</a></li>
                                         </ul>
                                     </div>
                                     <!-- Dropdown Language End -->
@@ -206,16 +206,16 @@
             <nav>
                 <ul>
                     <li class="active">
-                        <a href="{% url 'index' %}">Головна</a>
+                        <a href="{% url 'index_english' %}">Main page</a>
                     </li>
                     <li>
-                        <a href="{% url 'cart_view' %}">Каталог</a>
+                        <a href="{% url 'cart_view_english' %}">Catalog</a>
                     </li>
                     <li>
-                        <a href="{% url 'contact_view' %}">Контакти</a>
+                        <a href="{% url 'contact_view_english' %}">Contact</a>
                     </li>
                     <li>
-                        <a href="{% url 'shopwindow' %}">Вітрини</a>
+                        <a href="{% url 'shopwindow_english' %}">Shop Window</a>
                     </li>
                 </ul>
             </nav>
@@ -242,14 +242,14 @@
                             <!-- footer Widget Start -->
                             <div class="footer-widget">
                                {% if  logo %}
-                                <a href="{% url 'index' %}"><img src="{{ logo.img.url }}" alt=""></a>
+                                <a href="{% url 'index_english' %}"><img src="{{ logo.img.url }}" alt=""></a>
                                 {% else %}
-                                <h1><a href="{% url 'index' %}"><font color="white">Grace-Furniture</font></a></h1>
+                                <h1><a href="{% url 'index_english' %}"><font color="white">Grace-Furniture</font></a></h1>
                                 {% endif %}
                                 <div class="footer-widget-text">
                                     {% if contact %}
-                                    <p><strong>Адреса :</strong> {{ contact.address|linebreaks }}</p>
-                                    <p><strong>Телефон :</strong> {{ contact.phone|linebreaks }}</p>
+                                    <p><strong>Address :</strong> {{ contact.address_english|linebreaks }}</p>
+                                    <p><strong>Phone :</strong> {{ contact.phone|linebreaks }}</p>
                                     <p><strong>Email :</strong> {{ contact.email|linebreaks }}</p>
                                     {% endif %}
                                 </div>
@@ -261,13 +261,13 @@
 
                             <!-- footer Widget Start -->
                             <div class="footer-widget">
-                                <h3 class="footer-widget-title">Інформація</h3>
+                                <h3 class="footer-widget-title">Info</h3>
 
                                 <ul class="widget-link">
-                                    <li><a href="{% url 'index' %}">Головна</a></li>
-                                    <li><a href="{% url 'cart_view' %}">Каталог</a></li>
-                                    <li><a href="{% url 'contact_view' %}">Контакти</a></li>
-                                    <li><a href="{% url 'shopwindow' %}">Вітрини</a></li>
+                                    <li><a href="{% url 'index_english' %}">Main page</a></li>
+                                    <li><a href="{% url 'cart_view_english' %}">Catalog</a></li>
+                                    <li><a href="{% url 'contact_view_english' %}">Contact</a></li>
+                                    <li><a href="{% url 'shopwindow_english' %}">Shop Window</a></li>
                                 </ul>
                             </div>
                             <!-- footer Widget End -->

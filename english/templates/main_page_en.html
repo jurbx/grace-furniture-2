@@ -1,0 +1,228 @@
+{% extends 'index_en.html' %}
+{% load static %}
+{% load mathfilters %}
+{% block title %}
+    <title>Main page</title>
+{% endblock %}
+
+{% block content %}
+<!-- Header Start -->
+
+ <!-- Slider Start -->
+    <div class="section">
+
+        <div class="swiper-container slider-active">
+            <div class="swiper-wrapper">
+                {% for item in hero %}
+                <!-- Single Slider Start -->
+                <div class="single-slider swiper-slide animation-style-01" style="background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url({{ item.img.url }});">
+                    <div class="container">
+                        <!-- Slider Content Start -->
+                        <div class="slider-content">
+                            <h2 class="main-title"><font color="white">{{ item.title }}</font></h2>
+                            <p><font color="white">{{ item.context }}</font></p>
+                            <a href="{% url 'model_view_english' item.section.sofa.slug %}" class="btn btn-primary btn-hover-dark">Show More</a>
+                        </div>
+                        <!-- Slider Content End -->
+                    </div>
+                </div>
+                <!-- Single Slider End -->
+                {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination d-none"></div>
+
+            <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <!-- Slider End -->
+
+    <!-- Best Seller Start -->
+    <div class="section section-padding-02 mt-n3">
+        <div class="container">
+            <!-- Product Tabs Start -->
+            <div class="product-tabs">
+                <div class="nav justify-content-center">
+                    <h2 class="title" ><a href="{% url 'cart_view_english' %}"><font color="black">Catalog</font></a></h2>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tab1">
+                        <!-- Product Wrapper Start -->
+                        <div class="product-wrapper product-active">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    {% for item in sofa_models %}
+                                        {% if forloop.counter|mod:2 != 0 %}
+                                            <div class="swiper-slide">
+                                        {% endif %}
+                                        <!-- Product Item Start -->
+                                        <div class="product-item">
+                                            <div class="image-block">
+                                                <a href="{% url 'cart_view_english' %}?category={{ item.name }}">
+                                                    <img src="{{ item.img.url }}" alt="">
+                                                    <img class="image-hover" src="{{ item.img.url }}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-features-reviews">
+                                                </div>
+                                                <h4 class="product-name"><a href="{% url 'cart_view_english' %}?category={{ item.name }}">{{ item.name }}</a></h4>
+                                            </div>
+                                        </div>
+                                        <!-- Product Item End -->
+                                            {% if forloop.counter0|mod:2 != 0 %}
+                                                </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                        <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            </div>
+
+                        </div>
+                        <!-- Product Wrapper End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Product Tabs End -->
+        </div>
+    <!-- Best Seller End -->
+
+
+
+   <!-- Blog Start -->
+    <div class="section section-padding mt-n2">
+        <div class="container">
+            <!-- Section Title Start -->
+            <div class="section-title text-center">
+                <h2 class="title"><a href="{% url 'shopwindow_english' %}"><font color="black">Shop Window</font></a> </h2>
+            </div>
+            <!-- Section Title End -->
+
+            <!-- Blog Wrapper Start -->
+            <div class="blog-wraper blog-active">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    {% if shopwindow %}
+                        {% for item in shopwindow %}
+                        <div class="swiper-slide">
+                            <!-- Single Blog Item Start -->
+                            <div class="single-blog-item">
+                                <div class="blog-image">
+                                    <a href="{% url 'model_view_english' item.sofa.slug %}">
+                                        <img src="{{ item.img.url }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="blog-content">
+                                    <h4 class="post-title"><a href="{% url 'model_view_english' item.sofa.slug %}">{{ item.sofa.title }}</a></h4>
+                                    <div class="blog-meta">
+                                        <p class="meta-author">Category: <a href="{% url 'cart_view_english' %}?category={{ item.sofa.category }}">{{ item.sofa.category }}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Blog Item End -->
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+                <!-- Add Arrows -->
+
+            </div>
+                <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+            <!-- Blog Wrapper End -->
+        </div>
+    </div>
+    </div>
+    <!-- Blog End -->
+
+
+    {% if contact %}
+    <div class="section section-padding mt-n2">
+        <div class="container">
+            <div class="nav justify-content-center">
+                    <h2 class="title"><a href="{% url 'contact_view_english' %}"><font color="black">Contact</font></a></h2>
+                </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- Single Contact Info Start -->
+                            <div class="single-contact-info">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h5 class="title">Address</h5>
+                                    <p>{{ contact.address_english|linebreaks }}</p>
+                                </div>
+                            </div>
+                            <!-- Single Contact Info End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Single Contact Info Start -->
+                            <div class="single-contact-info">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h5 class="title">Phone</h5>
+                                    <p>{{ contact.phone|linebreaks }}</p>
+                                </div>
+                            </div>
+                            <!-- Single Contact Info End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Single Contact Info Start -->
+                            <div class="single-contact-info">
+                                <div class="info-icon">
+                                    <i class="far fa-globe"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h5 class="title">Email</h5>
+                                    <p>{{ contact.email }}</p>
+                                </div>
+                            </div>
+                            <!-- Single Contact Info End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <br>
+        <br>
+    {% endif %}
+
+
+    <!-- About Start -->
+       {% if about %}
+    <div class="section section-padding mt-n2">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-4">
+                    <div class="about-image">
+                        <img src="{{ about.obj.img.url }}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="about-text">
+                        <div class="about-text-wrapper">
+                            <h4 class="title">{{ about.title }}</h4>
+                            <p>{{ about.desc|linebreaks }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       {% endif %}
+    <!-- About End -->
+
+{% endblock %}

@@ -44,7 +44,7 @@ AWS_QUERYSTRING_AUTH = False
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['grace-furniture.herokuapp.com', 'grace-furniture.com.ua']
 
 
 # Application definition
@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'cart',
     'shopwindow',
     'contact',
-    'page_404'
+    'page_404',
+    'english'
 ]
 
 MIDDLEWARE = [

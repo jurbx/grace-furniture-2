@@ -1,0 +1,187 @@
+{% extends 'index_en.html' %}
+{% load static %}
+{% block title %}
+    <title>{{ sofa.title }}</title>
+{% endblock %}
+{% block content %}
+
+    <div class="page-banner-section section">
+        <div class="container">
+            <!-- Pager Banner Start -->
+            <div class="page-banner-content text-center">
+                <h2 class="page-banner-title">Catalog</h2>
+                <ul class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'index_english' %}">Main page</a></li>
+                   <li class="breadcrumb-item"><a href="{% url 'cart_view_english' %}">Catalog</a></li>
+                    <li class="breadcrumb-item active">{{ sofa.title }}</li>
+                </ul>
+            </div>
+            <!-- Pager Banner End -->
+        </div>
+    </div>
+
+    <!-- Shop Single Section Start -->
+    <div class="shop-section section section-padding-02 mt-n10">
+        <div class="container">
+            <div class="row gx-10">
+                <div class="col-lg-6">
+                    <!-- Shop Gallery image Start -->
+                    <div class="vertical-slider-wrap">
+                        <div class="swiper-container pd-vertical-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                        <img href="javascript:void(0)" src="{{ sofa.main_image.url }}" alt="Product Image">
+                                        <div class="inner-stuff">
+                                            <div class="gallery-item" data-bs-src="{{ sofa.main_image.url }}">
+                                                <a href="javascript:void(0)">
+                                                    <i class="lastudioicon-full-screen"></i>
+                                                </a>
+                                            </div>
+                                    </div>
+                                </div>
+                                {% if img %}
+                                    {% for item in img %}
+                                <div class="swiper-slide">
+                                    <div class="single-img">
+                                            <img src="{{ item.img.url }}" alt="Product Image">
+                                        <div class="inner-stuff">
+                                            <div class="gallery-item" data-bs-src="{{ item.img.url }}">
+                                                <a href="javascript:void(0)">
+                                                    <i class="lastudioicon-full-screen"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <a href="#gallery-1" class="btn-gallery"><i class="far fa-expand"></i></a>
+                        </div>
+                        <div class="vertical-slider-nav swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{{ sofa.main_image.url }}" alt="Product Thumnail">
+                                </div>
+                                {% if img %}
+                                    {% for item in img %}
+                                <div class="swiper-slide">
+                                    <img src="{{ item.img.url }}" alt="Product Thumnail">
+                                </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div id="gallery-1" class="gallery-hidden">
+                            <a href="{{ sofa.main_image.url }}">Image 1</a>
+                        {% if img %}
+                            {% for item in img %}
+                            <a href="{{ item.img.url }}">Image 2</a>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                    <!-- Shop Gallery image End -->
+                </div>
+                <div class="col-lg-6">
+                    <!-- Shop Single Start -->
+                    <div class="shop-single-content">
+                        <h3 class="product-name">{{ sofa.title }}</h3>
+                        <a class="reference" href="{% url 'cart_view' %}?category={{ sofa.category }}">{{ sofa.category }}</a>
+                        <div class="product-description">
+                            <ul>
+                                <li>{{ sofa.desc_english|linebreaks }}</li>
+                            </ul>
+                        </div>
+                        <div class="product-cart">
+                            <a href="{% url 'contact_view' %}#faq" class="btn btn-dark btn-hover-primary">Go to our Contact</a>
+                            {% if fbx %}
+                            <a href="{% url 'three_d_model' sofa.slug %}" class="btn btn-dark btn-hover-primary">View 3d</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Shop Single End -->
+                </div>
+            </div>
+
+            <!-- Shop Tabs Start -->
+            <div class="shop-tab section-padding-02">
+                <ul class="nav justify-content-center">
+                    <li><a class="active" data-bs-toggle="tab" href="#tab1">Product detail</a></li>
+                    <li><a data-bs-toggle="tab" href="#tab2">Product characteristics</a></li>
+                </ul>
+                <!-- Tab Content Start -->
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tab1">
+                        <!-- product description Start  -->
+                        <div class="product-description">
+                            <ul>
+                                <li>{{ sofa.detail_english|linebreaks }}</li>
+                            </ul>
+                        </div>
+                        <!-- product description End -->
+                    </div>
+                    <div class="tab-pane fade" id="tab2">
+                        <!-- product details Start  -->
+                            <div class="product-features">
+                                <p class="date">{{ sofa.characteristic_english|linebreaks }}</p>
+                            </div>
+                        </div>
+                        <!-- product details End -->
+                    </div>
+                </div>
+                <!-- Tab Content End -->
+            </div>
+            <!-- Shop Tabs End -->
+        </div>
+    </div>
+    <!-- Shop Single Section End -->
+
+    <!-- Related Product Start -->
+    <div class="section section-padding mt-n2 mb-n3">
+        <div class="container">
+            <!-- Section Title Start -->
+            <div class="section-title text-center">
+                <h2 class="title">Related products</h2>
+            </div>
+            <!-- Section Title End -->
+
+            <!-- Product Wrapper Start -->
+            <div class="product-wrapper product-active mt-n1">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for item in more_sofa %}
+                            <div class="swiper-slide">
+                            <!-- Product Item Start -->
+                            <div class="product-item">
+                                <div class="image-block">
+                                    <a href="{% url 'model_view' item.slug %}">
+                                        <img src="{{ item.main_image.url }}" alt="">
+                                        <img class="image-hover" src="{{ item.main_image.url }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-desc">
+                                    <div class="product-features-reviews">
+                                        <a href="{% url 'cart_view' %}?category={{ item.category }}" class="features">{{ item.category }}</a>
+
+                                    </div>
+                                    <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{{ item.title }}</a></h4>
+                                </div>
+                            </div>
+                            <!-- Product Item End -->
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <!-- Product Wrapper End -->
+        </div>
+    </div>
+    <!-- Related Product End -->
+
+    {% endblock %}
