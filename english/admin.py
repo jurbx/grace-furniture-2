@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import HeroSectionEn, AboutUsEn
 
-# Register your models here.
+
+admin.site.regisster(HeroSectionEn)
+admin.site.regisster(AboutUsEn)

@@ -13,7 +13,7 @@ def shopwindow(request):
     if img_under_main_image:
         if len(img_under_main_image) > 6:
             img_under_main_image = img_under_main_image[:6]
-    return render(request, 'shopwindow.html', context={'main_img': main_img,
+    return render(request, 'shopwindow_en.html', context={'main_img': main_img,
                                                        'img_under_main_image': img_under_main_image,
                                                        'upper_slider': upper_slider,
                                                        'images': images,
