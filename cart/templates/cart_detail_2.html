@@ -119,19 +119,19 @@
                         <div class="page-pagination">
                             <ul class="pagination ">
                                 {% if sofas.has_previous %}
-                                    <li class="page-item"><a class="page-link" href="?page={{ sofas.previous_page_number }}"><i class="icon-chevron-left"></i></a></li>
+                                    <li class="page-item"><a class="page-link" href="{% if cur_category %}?category={{ cur_category }}{% endif %}{% if cur_type %}?type={{ cur_type }}{% endif %}?page={{ sofas.previous_page_number }}"><i class="icon-chevron-left"></i></a></li>
                                 {% endif %}
                             {% for item in sofas.paginator.page_range %}
                                 {% if item == sofas.number %}
                                     {% if sofas.has_previous or sofas.has_next %}
-                                <li class="page-item"><a class="page-link active" href="#">{{ item }}</a></li>
+                                <li class="page-item"><a class="page-link active">{{ item }}</a></li>
                                         {% endif %}
                                 {% else %}
-                                <li class="page-item"><a class="page-link" href="?page={{ item }}">{{ item }}</a></li>
+                                <li class="page-item"><a class="page-link" href="{% if cur_category %}?category={{ cur_category }}{% endif %}{% if cur_type %}?type={{ cur_type }}{% endif %}?page={{ item }}">{{ item }}</a></li>
                                 {% endif %}
                             {% endfor %}
                                 {% if sofas.has_next %}
-                                    <li class="page-item"><a class="page-link" href="?page={{ sofas.next_page_number }}"><i class="icon-chevron-right"></i></a></li>
+                                    <li class="page-item"><a class="page-link" href="{% if cur_category %}?category={{ cur_category }}{% endif %}{% if cur_type %}?type={{ cur_type }}{% endif %}?page={{ sofas.next_page_number }}"><i class="icon-chevron-right"></i></a></li>
                                 {% endif %}
                             </ul>
                         </div>
