@@ -156,17 +156,17 @@
                             <!-- Product Item Start -->
                             <div class="product-item">
                                 <div class="image-block">
-                                    <a href="{% url 'model_view' item.slug %}">
+                                    <a href="{% url 'model_view_english' item.slug %}">
                                         <img src="{{ item.main_image.url }}" alt="">
                                         <img class="image-hover" src="{{ item.main_image.url }}" alt="">
                                     </a>
                                 </div>
                                 <div class="product-desc">
                                     <div class="product-features-reviews">
-                                        <a href="{% url 'cart_view' %}?category={{ item.category }}" class="features">{{ item.category }}</a>
+                                        <a href="{% url 'cart_view_english' %}?category={{ item.category }}" class="features">{{ item.category }}</a>
 
                                     </div>
-                                    <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{{ item.title }}</a></h4>
+                                    <h4 class="product-name"><a href="{% url 'model_view_english' item.slug %}">{{ item.title }}</a></h4>
                                 </div>
                             </div>
                             <!-- Product Item End -->
