@@ -88,7 +88,7 @@
                     <!-- Shop Single Start -->
                     <div class="shop-single-content">
                         <h3 class="product-name">{% if sofa.title_english %}{{ sofa.title_english }}{% else %}{{ sofa.title }}{% endif %}</h3>
-                        <a class="reference" href="{% url 'cart_view' %}?category={{ sofa.category }}">{{ sofa.category }}</a>
+                        <a class="reference" href="{% url 'cart_view_english' %}?category={{ sofa.category }}">{{ sofa.category }}</a>
                         <div class="product-description">
                             <ul>
                                 <li>{{ sofa.desc_english|linebreaks }}</li>
