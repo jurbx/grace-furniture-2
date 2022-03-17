@@ -1,7 +1,7 @@
 {% extends 'index_en.html' %}
 {% load static %}
 {% block title %}
-    <title>{{ sofa.title }}</title>
+    <title>{% if sofa.title_english %}{{ sofa.title_english }}{% else %}{{ sofa.title }}{% endif %}</title>
 {% endblock %}
 {% block content %}
 
