@@ -71,7 +71,7 @@
                                                     <a href="{% url 'cart_view_english' %}?category={{ item.category }}" class="features">{{ item.category }}</a>
 
                                                 </div>
-                                                <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{{ item.title }}</a></h4>
+                                                <h4 class="product-name"><a href="{% url 'model_view' item.slug %}">{% if item.title_english %}{{ item.title_english }}{% else %}{{ item.title }}{% endif %}</a></h4>
 
                                             </div>
                                         </div>

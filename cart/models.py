@@ -39,6 +39,8 @@ class SofaModel(models.Model):
     sofa_type = models.ForeignKey(SofaTypes, on_delete=models.CASCADE, verbose_name='Тип')
     priority = models.PositiveIntegerField(verbose_name='Приоритет показу диванів в каталозі', default=1)
     new = models.BooleanField(default=False, verbose_name='Новинка')
+    title_english = models.CharField(max_length=100, verbose_name='Назва дивану англійською(Якщо в цьому є потреба)',
+                                     blank=True, null=True)
     desc_english = models.TextField(max_length=1000, default='.', blank=True,
                                     verbose_name='Короткий опис товару англійською')
     detail_english = models.TextField(max_length=2000, default='.', blank=True,

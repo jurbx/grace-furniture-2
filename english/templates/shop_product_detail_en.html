@@ -87,7 +87,7 @@
                 <div class="col-lg-6">
                     <!-- Shop Single Start -->
                     <div class="shop-single-content">
-                        <h3 class="product-name">{{ sofa.title }}</h3>
+                        <h3 class="product-name">{% if sofa.title_english %}{{ item.title_english }}{% else %}{{ item.title }}{% endif %}</h3>
                         <a class="reference" href="{% url 'cart_view' %}?category={{ sofa.category }}">{{ sofa.category }}</a>
                         <div class="product-description">
                             <ul>
@@ -166,7 +166,7 @@
                                         <a href="{% url 'cart_view_english' %}?category={{ item.category }}" class="features">{{ item.category }}</a>
 
                                     </div>
-                                    <h4 class="product-name"><a href="{% url 'model_view_english' item.slug %}">{{ item.title }}</a></h4>
+                                    <h4 class="product-name"><a href="{% url 'model_view_english' item.slug %}">{% if item.title_english %}{{ item.title_english }}{% else %}{{ item.title }}{% endif %}</a></h4>
                                 </div>
                             </div>
                             <!-- Product Item End -->
