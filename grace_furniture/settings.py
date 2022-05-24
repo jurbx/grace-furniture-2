@@ -43,7 +43,7 @@ AWS_QUERYSTRING_AUTH = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['grace-furniture.herokuapp.com', 'grace-furniture.com.ua']
+ALLOWED_HOSTS = ['grace-furniture.com.ua']
 
 
 # Application definition
@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'shopwindow',
     'contact',
     'page_404',
-    'english'
+    'english',
+    'silk'
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "corsheaders.middleware.CorsMiddleware",
+    'silk.middleware.SilkyMiddleware',
 ]
 
 ROOT_URLCONF = 'grace_furniture.urls'
@@ -106,12 +108,12 @@ WSGI_APPLICATION = 'grace_furniture.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'grace',
+        'USER': 'jurbx',
+        'PASSWORD': 'daniki123',
+        'HOST': 'localhost',
+        'PORT': '',
 }
 }
 
