@@ -76,7 +76,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "corsheaders.middleware.CorsMiddleware",
-    'silk.middleware.SilkyMiddleware',
 ]
 
 ROOT_URLCONF = 'grace_furniture.urls'
