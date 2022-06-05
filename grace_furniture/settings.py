@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'contact',
     'page_404',
     'english',
-    'silk'
 ]
 
 MIDDLEWARE = [
