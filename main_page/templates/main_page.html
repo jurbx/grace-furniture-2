@@ -19,7 +19,8 @@
                     <div class="container">
                         <!-- Slider Content Start -->
                         <div class="slider-content">
-                            <h2 class="main-title"><font color="white">{{ item.title }}</font></h2>
+                            {% if forloop.first %}<h2 class="main-title"><font color="white">{{ item.title }}</font></h2>{% else %}
+                            <h1 class="main-title"><font color="white">{{ item.title }}</font></h1>>{% endif %}
                             <p><font color="white">{{ item.context }}</font></p>
                             <a href="{% url 'model_view' item.sofa.slug %}" class="btn btn-primary btn-hover-dark">Детальніше</a>
                         </div>
