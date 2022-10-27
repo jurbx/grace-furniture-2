@@ -98,9 +98,9 @@
                     {% for item in shop %}
                     <div class="card border-0 wow fadeInUp" data-wow-delay="{{ forloop.counter|add:1|mul:0.1 }}s" style="visibility: visible; animation-delay: {{ forloop.counter|add:1|mul:0.1 }}s; animation-name: fadeInUp;">
                         <div class="card-header" id="headingOne">
-                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#{{ item.id }}" aria-expanded="true" aria-controls="{{ item.id }}"><font color="black">{{ item.city }}</font><span class="lni-chevron-up"></span></h6>
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#city{{ item.id }}" aria-expanded="true" aria-controls="city{{ item.id }}"><font color="black">{{ item.city }}</font><span class="lni-chevron-up"></span></h6>
                         </div>
-                        <div class="collapse" id="{{ item.id }}" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                        <div class="collapse" id="city{{ item.id }}" aria-labelledby="headingOne" data-parent="#faqAccordion">
                             <div class="card-body">
                                 <p><font color="black">{{ item.info|linebreaks }}</font></p>
                             </div>
