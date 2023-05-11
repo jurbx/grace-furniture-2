@@ -107,10 +107,10 @@ WSGI_APPLICATION = 'grace_furniture.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'grace',
-        'USER': 'jurbx',
-        'PASSWORD': 'daniki123',
-        'HOST': 'localhost',
+        'NAME': DB_NAME,
+        'USER': DB_USER
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
         'PORT': '',
 }
 }
